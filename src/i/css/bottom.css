@@ -1,0 +1,18 @@
+/* 
+    Created on : 19 dic. 2021, 1:19:43 a. m.
+    Author     : neury-dev
+*/
+.v-box {
+    -fx-background-color: inherit;
+    -fx-alignment: CENTER;
+    /*-fx-padding: 8;*/
+    /*-fx-spacing: 4;*/
+}
+.label {
+    -fx-text-fill: white;
+    /*-fx-background-color: inherit;*/
+    -fx-font-size: 10px;
+    /*-fx-margin: 0;*/
+    /*-fx-padding: 0;*/
+    /*-fx-cursor: hand;*/
+}
