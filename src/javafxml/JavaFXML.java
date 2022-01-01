@@ -23,13 +23,5 @@ public class JavaFXML extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-    
+    } 
 }

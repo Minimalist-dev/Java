@@ -1,3 +1,4 @@
+/*@import url("raiz.css");*/
 /* 
     Created on : 19 dic. 2021, 1:19:51 a. m.
     Author     : neury-dev
@@ -9,8 +10,8 @@
     -fx-spacing: 8;
 }
 .toggle-button {
-    -fx-text-fill: #1c1d22;
-    -fx-background-color: white;
+    -fx-text-fill: -n-color-2;
+    -fx-background-color: -n-color-1;
     /*-fx-background-radius: 50%;*/
     /*-fx-border-color: rgb(49, 89, 23);*/
     /*-fx-border-radius: 50%;*/

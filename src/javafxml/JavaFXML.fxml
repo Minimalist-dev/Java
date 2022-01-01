@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
@@ -9,20 +10,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="border-pane" stylesheets="@../i/css/java_fxml.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.JavaFXMLController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" styleClass="border-pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.JavaFXMLController">
    <left>
-      <VBox prefHeight="370.0" prefWidth="165.0" styleClass="v-box" stylesheets="@../i/css/left.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER_LEFT" prefHeight="370.0" prefWidth="165.0" styleClass="v-box" stylesheets="@../i/css/left.css" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#panel1" text="HTML" />
             <Button mnemonicParsing="false" onAction="#panel2" text="XML" />
             <Button mnemonicParsing="false" onAction="#panel3" text="CSS" />
-            <Button mnemonicParsing="false" text="JavaScript Full Stack" />
-            <Button mnemonicParsing="false" text="Java Full Stack" />
+            <Button mnemonicParsing="false" text="JavaScript" />
+            <Button mnemonicParsing="false" onAction="#circulo" text="Java" />
             <Button mnemonicParsing="false" text="PHP" />
             <Button mnemonicParsing="false" text="SQL" />
             <Button mnemonicParsing="false" text="JSON" />
-            <Button mnemonicParsing="false" text="MongoDB" />
-            <Button mnemonicParsing="false" text="Fetch y AJAX" />
             <Button mnemonicParsing="false" text="ARIA" />
             <Button mnemonicParsing="false" text="SVG" />
             <Button mnemonicParsing="false" text="Apache NetBeans" />
@@ -61,4 +60,8 @@
    <top>
       <HBox prefHeight="20.0" prefWidth="1000.0" stylesheets="@../i/css/top.css" BorderPane.alignment="CENTER" />
    </top>
+   <stylesheets>
+      <URL value="@../i/css/java_fxml.css" />
+      <URL value="@../i/css/raiz.css" />
+   </stylesheets>
 </BorderPane>

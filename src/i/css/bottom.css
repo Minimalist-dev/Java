@@ -1,3 +1,4 @@
+/*@import url("raiz.css");*/
 /* 
     Created on : 19 dic. 2021, 1:19:43 a. m.
     Author     : neury-dev
@@ -9,7 +10,7 @@
     /*-fx-spacing: 4;*/
 }
 .label {
-    -fx-text-fill: white;
+    -fx-text-fill: -n-color-1;
     /*-fx-background-color: inherit;*/
     -fx-font-size: 10px;
     /*-fx-margin: 0;*/

@@ -1,10 +1,21 @@
+/*@import url("raiz.css");*/
 /* 
     Created on : 19 dic. 2021, 1:20:45 a. m.
     Author     : neury-dev
 */
+
+.root {
+    -fx-background-color: -n-color-2;
+}
 .border-pane {
-    -fx-text-fill: white;
-    -fx-background-color: #1c1d22;
+    /*-fx-text-fill: -n-color-1;*/
+    -fx-background-color: -n-color-2;
     -fx-padding: 16px;
+}
+#java {
+    -fx-opacity: 0;
+}
+.java-no {
+    -fx-opacity: 0;
 }
 
