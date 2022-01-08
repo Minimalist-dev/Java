@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.Sistema_javaController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="191.0" prefWidth="55.0" spacing="15.0">
+         <children>
+            <Label text="ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Titulo">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Autor">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Año">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Pagina">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="69.0" layoutY="14.0" prefHeight="191.0" prefWidth="142.0" spacing="10.0">
+         <children>
+            <TextField fx:id="entradaId" />
+            <TextField fx:id="entradaTitulo" />
+            <TextField fx:id="entradaAutor" />
+            <TextField fx:id="entradaYear" />
+            <TextField fx:id="entradaPagina" />
+         </children>
+      </VBox>
+      <TableView fx:id="tabla" layoutX="233.0" layoutY="14.0" prefHeight="362.0" prefWidth="417.0">
+        <columns>
+          <TableColumn fx:id="columnaId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="columnaTitulo" prefWidth="75.0" text="Titulo" />
+            <TableColumn fx:id="columnaAutor" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="columnaYear" prefWidth="75.0" text="Año" />
+            <TableColumn fx:id="columnaPagina" prefWidth="75.0" text="Pagina" />
+        </columns>
+      </TableView>
+      <Button fx:id="insertar" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Insetar" />
+      <Button fx:id="actualizar" layoutX="76.0" layoutY="361.0" mnemonicParsing="false" text="Actualizar" />
+      <Button fx:id="eliminar" layoutX="159.0" layoutY="361.0" mnemonicParsing="false" text="Eliminar" />
+   </children>
+</AnchorPane>

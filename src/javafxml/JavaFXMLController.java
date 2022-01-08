@@ -1,5 +1,6 @@
 package javafxml;
 
+import i.DesarrollosController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,18 +21,21 @@ import javafx.scene.layout.StackPane;
  */
 public class JavaFXMLController implements Initializable {
     
-    @FXML private BorderPane border;
+    @FXML public BorderPane border;
     @FXML public StackPane center;
-    @FXML private ToggleButton desarrollos;
-    @FXML private ToggleButton codigo;
+    @FXML public ToggleButton desarrollos;
+    @FXML public ToggleButton codigo;
     
     public NivelesController niveles = new NivelesController();
+    public DesarrollosController sistema = new DesarrollosController();
     
     @Override public void 
     initialize(URL url, ResourceBundle rb) {
-        cargarLeft("left");
+//        cargarLeft("left");
 //        niveles.nivel(center);
-        cargarCenter("niveles");   
+        sistema.sistema(center);
+//        cargarCenter("niveles");   
+//        sistema.stackPane(center);
     }
     private void 
     cargarLeft(String vbox) {
@@ -43,7 +47,7 @@ public class JavaFXMLController implements Initializable {
             Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void 
+    public void 
     cargarCenter(String pane) {
         try {
             Parent centro = FXMLLoader.load(getClass().getResource( pane + ".fxml"));
@@ -73,4 +77,14 @@ public class JavaFXMLController implements Initializable {
             cargarCenter("niveles"); 
         }
     }
+//    @FXML public void
+//    sistemaMySQL(ActionEvent actionEvent) {
+//        try {
+//            Parent centro = FXMLLoader.load(getClass().getResource("/javafxml/sistemaMySQL.fxml"));
+//            center.getChildren().removeAll();
+//            center.getChildren().setAll(centro);
+//        } catch (IOException ex) {
+//            Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 }
