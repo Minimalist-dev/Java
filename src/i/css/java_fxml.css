@@ -5,17 +5,9 @@
 */
 
 .root {
-    -fx-background-color: -n-color-2;
+/*    -fx-background-color: n-color-2;*/
 }
 .border-pane {
-    /*-fx-text-fill: -n-color-1;*/
-    -fx-background-color: -n-color-2;
-    -fx-padding: 16px;
+    -fx-background-color: n-color-2;
+    -fx-padding: 16;
 }
-#java {
-    -fx-opacity: 0;
-}
-.java-no {
-    -fx-opacity: 0;
-}
-

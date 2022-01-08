@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="left" onDragDetected="#boton" prefHeight="370.0" prefWidth="165.0" styleClass="v-box" stylesheets="@../i/css/left.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.NivelesController">
+    <children>
+        <Button mnemonicParsing="false" text="HTML" />
+        <Button mnemonicParsing="false" text="XML" />
+        <Button mnemonicParsing="false" text="CSS" />
+        <Button mnemonicParsing="false" text="JavaScript" />
+        <Button mnemonicParsing="false" text="Java" />
+        <Button mnemonicParsing="false" text="PHP" />
+        <Button mnemonicParsing="false" text="SQL" />
+        <Button mnemonicParsing="false" text="JSON" />
+        <Button mnemonicParsing="false" text="ARIA" />
+        <Button mnemonicParsing="false" text="SVG" />
+        <Button mnemonicParsing="false" text="Apache NetBeans" />
+        <Button mnemonicParsing="false" text="Git y GitHub" />
+    </children>
+</VBox>

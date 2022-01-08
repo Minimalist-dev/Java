@@ -1,17 +1,17 @@
-/*@import url("raiz.css");*/
 /* 
     Created on : 19 dic. 2021, 1:19:26 a. m.
     Author     : neury-dev
 */
 .v-box {
     -fx-background-color: inherit;
+    -fx-alignment: CENTER_LEFT;
     -fx-padding: 16;
     -fx-spacing: 8;
 }
 .button {
-    -fx-text-fill: -n-color-1;
+    -fx-text-fill: n-color-1;
     -fx-background-color: inherit;
-    -fx-font-size: 12px;
+    /*-fx-font-size: 12px;*/
     -fx-padding: 0;
     -fx-cursor: hand;
 }

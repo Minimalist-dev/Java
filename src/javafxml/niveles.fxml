@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="283.0" prefWidth="449.0" style="-fx-background-color: #1c1d22;" stylesheets="@../i/css/niveles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="niveles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="283.0" prefWidth="449.0" style="-fx-background-color: #1c1d22;" stylesheets="@../i/css/niveles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.NivelesController">
    <children>
       <AnchorPane fx:id="demo" layoutX="100.0" layoutY="100.0">
          <children>
@@ -41,7 +41,7 @@
         <Line endX="42.0" layoutY="253.1" startX="32.0" styleClass="line" />
         <Line endX="42.0" layoutY="279.0" startX="32.0" styleClass="line" />
         <Circle layoutX="430.0" layoutY="40.0" radius="6.0" styleClass="circle" />
-        <Circle layoutX="110.0" layoutY="194.0" radius="6.0" styleClass="circle" />
+        <Circle id="html" fx:id="html" layoutX="110.0" layoutY="194.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="422.0" layoutY="50.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="386.0" layoutY="98.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="364.0" layoutY="124.0" radius="6.0" styleClass="circle" />
@@ -51,5 +51,6 @@
         <Circle layoutX="324.0" layoutY="170.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="414.0" layoutY="62.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="152.0" layoutY="140.0" radius="6.0" styleClass="circle" />
+      <Button layoutX="69.0" layoutY="21.0" mnemonicParsing="false" text="Button" />
    </children>
 </Pane>

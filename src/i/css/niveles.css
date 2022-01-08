@@ -3,11 +3,11 @@
     Author     : neury-dev
 */
 .line {
-    -fx-stroke: white;
+    -fx-stroke: n-color-1;
     -fx-stroke-width: 2;
 }
 .circle {
-    -fx-fill: #1c1d22;
-    -fx-stroke: white;
+    -fx-fill: n-color-2;
+    -fx-stroke: n-color-1;
     -fx-stroke-type: inside;
 }
