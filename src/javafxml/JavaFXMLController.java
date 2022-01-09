@@ -1,42 +1,74 @@
 package javafxml;
 
-import i.DesarrollosController;
+import javafx.JavaFX;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.DefaultProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 /**
  *
  * @author neury-dev
  */
+@DefaultProperty("center")
 public class JavaFXMLController implements Initializable {
     
     @FXML public BorderPane border;
     @FXML public StackPane center;
+//    @FXML private StackPane center;
     @FXML public ToggleButton desarrollos;
     @FXML public ToggleButton codigo;
+
+    public StackPane getCenter() {
+        return center;
+    }
+
+    public void setCenter(StackPane center) {
+        this.center = center;
+    }
+
+    public ObservableList<Node> getExtension() {
+        return center.getChildren();
+    }
     
-    public NivelesController niveles = new NivelesController();
-    public DesarrollosController sistema = new DesarrollosController();
+    protected static void loadFxml(URL fxmlFile, Object rootController) {
+        FXMLLoader loader = new FXMLLoader(fxmlFile);
+        loader.setController(rootController);
+        loader.setRoot(rootController);
+        try {
+            loader.load();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     @Override public void 
     initialize(URL url, ResourceBundle rb) {
-//        cargarLeft("left");
+        setCenter(center);
+        cargarLeft("left");
 //        niveles.nivel(center);
-        sistema.sistema(center);
-//        cargarCenter("niveles");   
-//        sistema.stackPane(center);
+//        sistema.sistema(center);
+        cargarCenter("niveles");   
     }
+//    public void idFX() throws IOException {
+//        Parent centro = FXMLLoader.load(getClass().getResource("sistemaMySQL.fxml"));
+//        center.getChildren().removeAll();
+//        center.getChildren().setAll(centro);
+//    }
     private void 
     cargarLeft(String vbox) {
         try {
@@ -48,9 +80,23 @@ public class JavaFXMLController implements Initializable {
         }
     }
     public void 
-    cargarCenter(String pane) {
+    cargarCenter(String pane) { 
+        setCenter(center);
+        
         try {
             Parent centro = FXMLLoader.load(getClass().getResource( pane + ".fxml"));
+  
+            center.getChildren().removeAll();
+            center.getChildren().setAll(centro);
+        } catch (IOException ex) {
+            Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    @FXML
+    public void cargar() {
+        try {
+            Parent centro = FXMLLoader.load(getClass().getResource("sistemaMySQL.fxml"));
+  
             center.getChildren().removeAll();
             center.getChildren().setAll(centro);
         } catch (IOException ex) {
@@ -61,7 +107,7 @@ public class JavaFXMLController implements Initializable {
     desarrollos(ActionEvent actionEvent) {
         if(desarrollos.isSelected()) {
             border.getChildren().removeAll(border.getLeft());
-            cargarCenter("/i/desarrollos");
+            cargarCenter("desarrollos");
         } else {
             cargarLeft("left");
             cargarCenter("niveles"); 
@@ -69,22 +115,21 @@ public class JavaFXMLController implements Initializable {
     }
     @FXML public void
     codigo(ActionEvent actionEvent) {
-        if(codigo.isSelected()) {
-            border.getChildren().removeAll(border.getLeft());
-            cargarCenter("/i/code");
+        JavaFX javafx = new JavaFX();
+//        javafx.javaFX();
+         if(codigo.isSelected()) {
+            javafx.javaFX();
         } else {
-            cargarLeft("left");
-            cargarCenter("niveles"); 
+            javafx.javaFX();
         }
-    }
-//    @FXML public void
-//    sistemaMySQL(ActionEvent actionEvent) {
-//        try {
-//            Parent centro = FXMLLoader.load(getClass().getResource("/javafxml/sistemaMySQL.fxml"));
-//            center.getChildren().removeAll();
-//            center.getChildren().setAll(centro);
-//        } catch (IOException ex) {
-//            Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+
+//        if(codigo.isSelected()) {
+//            border.getChildren().removeAll(border.getLeft());
+//            cargarCenter("/i/code");
+//        } else {
+//            cargarLeft("left");
+//            cargarCenter("niveles"); 
 //        }
-//    }
+    }
+    
 }

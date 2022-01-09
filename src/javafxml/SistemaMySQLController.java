@@ -22,6 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -29,6 +30,8 @@ import javafx.scene.input.MouseEvent;
  * @author neury-dev
  */
 public class SistemaMySQLController implements Initializable {
+    @FXML public AnchorPane anclar;
+    public DesarrollosController dev = new DesarrollosController();
 
     @FXML
     private TextField entradaId;
@@ -65,6 +68,7 @@ public class SistemaMySQLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+//        dev.sistema(anclar);
         // TODO
         showTabla();
     }    
