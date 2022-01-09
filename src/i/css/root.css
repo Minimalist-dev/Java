@@ -47,3 +47,15 @@
     n-color-4-8:          rgba(144, 30, 29, 0.8);
     n-color-4-9:          rgba(144, 30, 29, 0.9);
 }
+
+.toggle-button, 
+.button, 
+.menu, 
+.menu-item, 
+.tab, 
+.list-cell, 
+.scroll-bar > .thumb, 
+.increment-button, 
+.decrement-button { 
+    -fx-cursor: hand; 
+}

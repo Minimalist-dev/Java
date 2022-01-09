@@ -64,11 +64,6 @@ public class JavaFXMLController implements Initializable {
 //        sistema.sistema(center);
         cargarCenter("niveles");   
     }
-//    public void idFX() throws IOException {
-//        Parent centro = FXMLLoader.load(getClass().getResource("sistemaMySQL.fxml"));
-//        center.getChildren().removeAll();
-//        center.getChildren().setAll(centro);
-//    }
     private void 
     cargarLeft(String vbox) {
         try {
@@ -118,9 +113,9 @@ public class JavaFXMLController implements Initializable {
         JavaFX javafx = new JavaFX();
 //        javafx.javaFX();
          if(codigo.isSelected()) {
-            javafx.javaFX();
+//            javafx.javaFX();
         } else {
-            javafx.javaFX();
+//            javafx.javaFX();
         }
 
 //        if(codigo.isSelected()) {

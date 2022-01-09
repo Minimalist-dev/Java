@@ -16,7 +16,7 @@
                <children>
                   <Hyperlink text="Proyecto" />
                   <Label layoutY="18.0" text="08/ 01/2022 - 08/01/2022" />
-                  <Button mnemonicParsing="false" onAction="#sistema" stylesheets="@../i/css/desarrollos/desarrollos.css" text="Button" />
+                  <Button mnemonicParsing="false" onAction="#panel1" stylesheets="@../i/css/desarrollos/desarrollos.css" text="Button" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
