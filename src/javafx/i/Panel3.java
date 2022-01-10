@@ -23,15 +23,15 @@ public class Panel3 extends JavaFX {
                 Panel1 panel1 = new Panel1();
                 System.out.println("Hello World! 3");
                 
-                centerObject.getChildren().removeAll();
-                centerObject.getChildren().add(panel1.panel1());
+                center.getChildren().removeAll();
+                center.getChildren().add(panel1.panel1());
             }
         });
         centerPane.getChildren().addAll(boton);
-        centerObject.getChildren().add(
+        center.getChildren().add(
             centerPane
         );
         
-        return centerObject;
+        return center;
     }
 }

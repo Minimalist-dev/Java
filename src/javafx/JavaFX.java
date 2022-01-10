@@ -23,6 +23,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafxml.DesarrollosController;
 
 /**
  *
@@ -32,23 +33,24 @@ public class JavaFX extends Application{
     public static BorderPane borderPane = new BorderPane();
     public HBox top                     = new HBox();
     public VBox left                    = new VBox();
-    public StackPane centerObject       = new StackPane();
+    public StackPane center             = new StackPane();
     public VBox right                   = new VBox();
     public HBox bottom                  = new HBox();
     
     public int widthSide = 125;//WIDHT_SIDE 250
     public int heightSide = 125; //HEIGHT_SIDE 460
     
-    public void init(Stage stage) {
+    public void 
+    init(Stage stage) {
         HBox topObject      = agregarHBoxTop();
         VBox leftObject     = agregarVBoxLeft();
-        centerObject        = agregarStackPane();
+        center        = agregarStackPane();
         VBox rightObject    = agregarVBoxRight();
         HBox bottomObject   = agregarHBoxBottom();
         
         borderPane.setTop(topObject);
         borderPane.setLeft(leftObject);
-        borderPane.setCenter(centerObject);
+        borderPane.setCenter(center);
         borderPane.setRight(rightObject);
         borderPane.setBottom(bottomObject);
         borderPane.getStyleClass().add("border-pane");
@@ -111,13 +113,13 @@ public class JavaFX extends Application{
     agregarStackPane() {
         try {
             Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-            centerObject.getChildren().removeAll();
-            centerObject.getChildren().addAll(niveles);
+            center.getChildren().removeAll();
+            center.getChildren().addAll(niveles);
         } catch (IOException ex) {
             Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
         }
                 
-        return centerObject;
+        return center;
     }
     public VBox
     agregarVBoxRight() {
@@ -131,15 +133,12 @@ public class JavaFX extends Application{
         desarrollos.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override public void handle(MouseEvent eventObject) {
                 if(desarrollos.isSelected()) {
-                    try {
-                        borderPane.getChildren().removeAll(borderPane.getLeft());
+                    borderPane.getChildren().removeAll(borderPane.getLeft());
+//                    borderPane.getChildren().removeAll(borderPane.getCenter());
                         
-                        Parent desarrollos = FXMLLoader.load(getClass().getResource("/javafxml/desarrollos.fxml"));
-                        centerObject.getChildren().removeAll();
-                        centerObject.getChildren().addAll(desarrollos);
-                    } catch (IOException ex) {
-                        Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    DesarrollosController devs = new DesarrollosController();
+//                        borderPane.setCenter(devs.panel1());
+                    devs.desarrollos();
                 } else {
                     try {
                         Parent left = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
@@ -147,8 +146,8 @@ public class JavaFX extends Application{
                         borderPane.setLeft(left);
                         
                         Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-                        centerObject.getChildren().removeAll();
-                        centerObject.getChildren().addAll(niveles);
+                        center.getChildren().removeAll();
+                        center.getChildren().addAll(niveles);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -163,8 +162,8 @@ public class JavaFX extends Application{
                         borderPane.getChildren().removeAll(borderPane.getLeft());
                         
                         Parent codigo = FXMLLoader.load(getClass().getResource("/i/code.fxml"));
-                        centerObject.getChildren().removeAll();
-                        centerObject.getChildren().addAll(codigo);
+                        center.getChildren().removeAll();
+                        center.getChildren().addAll(codigo);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -175,8 +174,8 @@ public class JavaFX extends Application{
                         borderPane.setLeft(left);
                         
                         Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-                        centerObject.getChildren().removeAll();
-                        centerObject.getChildren().addAll(niveles);
+                        center.getChildren().removeAll();
+                        center.getChildren().addAll(niveles);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
                     }

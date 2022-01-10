@@ -23,18 +23,18 @@ public class Panel2 extends JavaFX {
             public void handle(ActionEvent event) {
                 Panel3 panel3 = new Panel3();
                 
-                centerObject.getChildren().removeAll();
-                centerObject.getChildren().add(panel3.panel3());
+                center.getChildren().removeAll();
+                center.getChildren().add(panel3.panel3());
                 
                 System.out.println("Hello World! 2");
             }
         });
         centerPane.getChildren().addAll(boton);
-        centerObject.getChildren().add(
+        center.getChildren().add(
             centerPane
         );
         
-        return centerObject;
+        return center;
     }
 }
 

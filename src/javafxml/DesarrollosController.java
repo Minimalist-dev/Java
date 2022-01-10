@@ -8,11 +8,18 @@ package javafxml;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.JavaFX;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.i.Panel1;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -21,53 +28,37 @@ import javafx.scene.layout.StackPane;
  * @author neury-dev
  */
 
-public class DesarrollosController extends JavaFXMLController implements Initializable {
+public class DesarrollosController extends JavaFX implements Initializable {
     
-    @FXML
-    public StackPane panel1() throws IOException {
-        Parent centro = FXMLLoader.load(getClass().getResource("sistemaMySQL.fxml"));
-        center.getChildren().removeAll();
-        center.getChildren().add(centro);
-        
-        return center;
-    }
-     
-    public DesarrollosController (){
-        super();
-//        loadFxml(DesarrollosController.class.getResource("/sistemaMySQL.fxml"), this);
-    }
-
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    @Override public void 
+    initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    public void
-    sistema() throws IOException {
-//        Parent centro = FXMLLoader.load(getClass().getResource("JavaFXML.fxml"));
-//        DesarrollosController contactosViewController = (DesarrollosController) centro.getController(); 
-      
-        loadFxml(DesarrollosController.class.getResource("/sistemaMySQL.fxml"), this);
-//       de.center.getChildren().add(anclar);
+    }  
+    public void 
+    cargarDesarrollo(String pane) { 
+        try {
+            Parent desarrollo = FXMLLoader.load(getClass().getResource(pane + ".fxml"));
+  
+            borderPane.getChildren().removeAll(borderPane.getCenter());
+            borderPane.setCenter(desarrollo);
+        } catch (IOException ex) {
+            Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    @FXML public void
-    sistema2(ActionEvent actionEvent) throws IOException {
-        this.cargar();
-//        JavaFXMLController fx = new JavaFXMLController();
-//        StackPane s = fx.getCenter();
-//        
-//        Parent centro = FXMLLoader.load(getClass().getResource("sistemaMySQL.fxml"));
-//        s.getChildren().removeAll();
-//        s.getChildren().setAll(centro);
-//        
-//            System.out.println("Stack: " + centro);
-//            de.center.getChildren().removeAll();
-//            de.center.getChildren().setAll(centro);
+    @FXML public StackPane 
+    desarrollos() {
+        cargarDesarrollo("desarrollos");
+        
+        return center;
+    }
+    @FXML public StackPane 
+    sistemaMySQL() {
+        cargarDesarrollo("sistemaMySQL");
+        
+        return center;
+    }
 
-//        System.out.println("Stack 1: " + fxmlURL);
-    }
-    
 }

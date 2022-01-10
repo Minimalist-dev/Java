@@ -26,7 +26,11 @@ public class Panel1 extends JavaFX {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    //                Panel2 panel2 = new Panel2();
+//                    Panel2 panel2 = new Panel2();
+//                
+//                    center.getChildren().removeAll();
+//                    center.getChildren().add(panel2.panel2());
+
                     System.out.println("Hello World! 1");
                     Parent centro = FXMLLoader.load(getClass().getResource("demo.fxml"));
                     centerPane.getChildren().removeAll();
@@ -37,10 +41,10 @@ public class Panel1 extends JavaFX {
             }
         });
         centerPane.getChildren().addAll(boton);
-        centerObject.getChildren().add(
+        center.getChildren().add(
             centerPane
         );
         
-        return centerObject;
+        return center;
     }
 }

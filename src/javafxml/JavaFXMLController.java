@@ -32,33 +32,9 @@ public class JavaFXMLController implements Initializable {
 //    @FXML private StackPane center;
     @FXML public ToggleButton desarrollos;
     @FXML public ToggleButton codigo;
-
-    public StackPane getCenter() {
-        return center;
-    }
-
-    public void setCenter(StackPane center) {
-        this.center = center;
-    }
-
-    public ObservableList<Node> getExtension() {
-        return center.getChildren();
-    }
-    
-    protected static void loadFxml(URL fxmlFile, Object rootController) {
-        FXMLLoader loader = new FXMLLoader(fxmlFile);
-        loader.setController(rootController);
-        loader.setRoot(rootController);
-        try {
-            loader.load();
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
     
     @Override public void 
     initialize(URL url, ResourceBundle rb) {
-        setCenter(center);
         cargarLeft("left");
 //        niveles.nivel(center);
 //        sistema.sistema(center);
@@ -76,7 +52,6 @@ public class JavaFXMLController implements Initializable {
     }
     public void 
     cargarCenter(String pane) { 
-        setCenter(center);
         
         try {
             Parent centro = FXMLLoader.load(getClass().getResource( pane + ".fxml"));
