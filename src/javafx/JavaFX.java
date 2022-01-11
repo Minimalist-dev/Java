@@ -22,14 +22,17 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.SVGPath;
 import javafxml.DesarrollosController;
 
 /**
  *
  * @author neury-dev
  */
-public class JavaFX extends Application{
+public class JavaFX extends Application {
+//    Scene scene = new Scene(borderPane, 1000, 500, Color.TRANSPARENT);
     public static BorderPane borderPane = new BorderPane();
     public HBox top                     = new HBox();
     public VBox left                    = new VBox();
@@ -60,17 +63,13 @@ public class JavaFX extends Application{
         borderPane.getRight().getStyleClass().add("right");
         borderPane.getBottom().getStyleClass().add("bottom");
 //        borderPane.setPrefSize(1000, 700);
-        Scene scene = new Scene(borderPane, 1000, 500, Color.TRANSPARENT);
+//        Scene scene = new Scene(borderPane, 1000, 500, Color.TRANSPARENT);
+        Scene scene = new Scene(borderPane, 1000, 500);
 
         stage.setScene(scene);
-        
-        scene.getStylesheets().add(JavaFX.class.getResource("/i/css/root.css").toExternalForm());
-        scene.getStylesheets().add(JavaFX.class.getResource("/i/css/border_pane.css").toExternalForm());
-//        scene.getStylesheets().add(JavaFX.class.getResource("css/left.css").toExternalForm());
-//        scene.getStylesheets().add(JavaFX.class.getResource("css/center.css").toExternalForm());
-//        scene.getStylesheets().add(JavaFX.class.getResource("css/right.css").toExternalForm());
-//        scene.getStylesheets().add(JavaFX.class.getResource("css/bottom.css").toExternalForm());
-//        scene.getStylesheets().add(JavaFX.class.getResource("css/sesion.css").toExternalForm());
+
+        scene.getStylesheets().add("/i/css/root.css");
+        scene.getStylesheets().add("/i/css/border_pane.css");
     }
     
     public HBox 
@@ -78,18 +77,15 @@ public class JavaFX extends Application{
         Button boton = new Button();
         boton.setText("Say 'Hello World'");
         boton.setOnAction(new EventHandler<ActionEvent>() {
-            
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
                 //in case we would like to close whole demo
 //                javafx.application.Platform.exit();
-//
 //                //however we want to close only this instance of stage
 //                stage.close();
             }
         });
-        
         
         top.setPrefSize(widthSide, heightSide);
         top.setAlignment(Pos.CENTER);
@@ -129,6 +125,17 @@ public class JavaFX extends Application{
         
         desarrollos.setToggleGroup(grupo);
         codigo.setToggleGroup(grupo);
+        
+        SVGPath svgDesarrollo = new SVGPath();
+        svgDesarrollo.setContent("M19,3h-4.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H5C4.86,3,4.73,3.01,4.6,3.04C4.21,3.12,3.86,3.32,3.59,3.59 c-0.18,0.18-0.33,0.4-0.43,0.64C3.06,4.46,3,4.72,3,5v14c0,0.27,0.06,0.54,0.16,0.78c0.1,0.24,0.25,0.45,0.43,0.64 c0.27,0.27,0.62,0.47,1.01,0.55C4.73,20.99,4.86,21,5,21h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M11,14.17l-1.41,1.42L6,12 l3.59-3.59L11,9.83L8.83,12L11,14.17z M12,4.25c-0.41,0-0.75-0.34-0.75-0.75S11.59,2.75,12,2.75s0.75,0.34,0.75,0.75 S12.41,4.25,12,4.25z M14.41,15.59L13,14.17L15.17,12L13,9.83l1.41-1.42L18,12L14.41,15.59z");
+        svgDesarrollo.getStyleClass().add("svg-path");
+        
+        SVGPath svgCodigo = new SVGPath();
+        svgCodigo.setContent("M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z");
+        svgCodigo.getStyleClass().add("svg-path");
+        
+        desarrollos.setGraphic(svgDesarrollo);
+        codigo.setGraphic(svgCodigo);
         
         desarrollos.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override public void handle(MouseEvent eventObject) {
@@ -183,6 +190,8 @@ public class JavaFX extends Application{
             }
         });
         
+        right.getStylesheets().add("/i/css/right.css");
+        right.getStyleClass().add("v-box");
         right.getChildren().addAll(desarrollos, codigo);
         
         return right;

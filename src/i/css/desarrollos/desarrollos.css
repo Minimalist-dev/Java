@@ -5,6 +5,7 @@
 .flow-pane {
     -fx-alignment: CENTER;
     -fx-column-halignment: center;
+    -fx-pref-width: 886px;
 }
 .desarrollo {
     -fx-background-color: n-color-2;

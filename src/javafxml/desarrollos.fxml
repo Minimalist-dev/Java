@@ -8,9 +8,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="248.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.DesarrollosController">
+
+<ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../i/css/desarrollos/desarrollos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.DesarrollosController">
    <content>
-      <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="650.0" styleClass="flow-pane">
+      <FlowPane styleClass="flow-pane">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="32.0" prefWidth="143.0" styleClass="desarrollo">
                <children>

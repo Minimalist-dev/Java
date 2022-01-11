@@ -5,16 +5,23 @@
 .v-box {
     -fx-background-color: inherit;
     -fx-alignment: CENTER;
+    -fx-padding: 16;
     -fx-spacing: 8;
 }
 .toggle-button {
+    -fx-fill: n-color-2;
     -fx-background-color: n-color-1;
     -fx-background-radius: 4px;
     -fx-content-display: graphic-only;
+    -fx-pref-width: 50px;
     -fx-border: none;
     -fx-cursor: hand;
 }
+.toggle-button .svg-path{
+    -fx-fill: n-color-2;
+}
 .toggle-button:selected {
+    -fx-fill: n-color-1;
     -fx-background-color: n-color-2;
     -fx-border-width: 0 0 0 1;
     -fx-border-style: solid;
