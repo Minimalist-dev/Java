@@ -8,6 +8,8 @@
     -fx-alignment: CENTER;
     -fx-pref-width: 500px;
     -fx-padding: 16px;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
 }
 .label {
     -fx-text-fill: n-color-2;
@@ -46,6 +48,11 @@
 .table-column {
     /*-fx-fill: n-color-1;*/
     /*-fx-background-color: n-color-2;*/
+}
+.pagina {
+    -fx-alignment: CENTER;
+    /*-fx-border-width: 0;*/
+    -fx-border-color: n-color-1;
 }
 
 

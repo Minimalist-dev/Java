@@ -44,6 +44,7 @@ public class JavaFX extends Application {
     public int widthSide = 125;//WIDHT_SIDE 250
     public int heightSide = 125; //HEIGHT_SIDE 460
     
+    
     public NivelesController niveles = new NivelesController();
     
     public void 
@@ -73,6 +74,7 @@ public class JavaFX extends Application {
 
         scene.getStylesheets().add("/i/css/root.css");
         scene.getStylesheets().add("/i/css/border_pane.css");
+        scene.getStylesheets().add("/i/css/bottom.css");
     }
     
     public HBox 
@@ -194,18 +196,12 @@ public class JavaFX extends Application {
     }
     public HBox 
     agregarHBoxBottom() {
-        Button boton = new Button();
-        boton.setText("Say 'Hello World'");
-        boton.setOnAction((ActionEvent event) -> {
-            niveles.boton2();
-        });
+        Bottom footer = new Bottom();
         
+//        borderPane.setBottom(footer.bottom());
         
-        bottom.setPrefSize(widthSide, heightSide);
-        bottom.setAlignment(Pos.CENTER);
-        bottom.setStyle("-fx-border-color: black;");
-        bottom.getChildren().addAll(boton);
-
+        footer.bottom();
+        
         return bottom;
     }
     @Override public void 
