@@ -40,6 +40,16 @@ public class NivelesController implements Initializable {
             Logger.getLogger(NivelesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    @FXML
+    public void
+    boton2(){
+        System.out.println("SVG 2");
+
+        demo.setVisible(false);
+        html.setVisible(false);
+        
+//return demo;
+    }
     public void
     boton(ActionEvent event) throws IOException {
         System.out.println("SVG");

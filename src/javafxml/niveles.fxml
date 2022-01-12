@@ -51,6 +51,6 @@
         <Circle layoutX="324.0" layoutY="170.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="414.0" layoutY="62.0" radius="6.0" styleClass="circle" />
         <Circle layoutX="152.0" layoutY="140.0" radius="6.0" styleClass="circle" />
-      <Button layoutX="69.0" layoutY="21.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="69.0" layoutY="21.0" mnemonicParsing="false" onAction="#boton" text="Button" />
    </children>
 </Pane>

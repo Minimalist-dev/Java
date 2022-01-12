@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -8,66 +9,72 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.SistemaMySQLController">
+<GridPane prefHeight="410.0" prefWidth="640.0" styleClass="grid-pane" stylesheets="@../i/css/desarrollos/sistema_mysql.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.SistemaMySQLController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="61.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="60.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="0.0" prefWidth="61.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="3.0" prefWidth="53.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="419.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="180.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <AnchorPane id="AnchorPane" fx:id="anclar" prefHeight="400.0" prefWidth="664.0">
-         <children>
-            <VBox layoutX="14.0" layoutY="14.0" prefHeight="191.0" prefWidth="55.0" spacing="15.0">
-               <children>
-                  <Label text="ID">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label text="Titulo">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label text="Autor">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label text="Año">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label text="Pagina">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </VBox>
-            <VBox layoutX="69.0" layoutY="14.0" prefHeight="191.0" prefWidth="142.0" spacing="10.0">
-               <children>
-                  <TextField fx:id="entradaId" />
-                  <TextField fx:id="entradaTitulo" />
-                  <TextField fx:id="entradaAutor" />
-                  <TextField fx:id="entradaYear" />
-                  <TextField fx:id="entradaPagina" />
-               </children>
-            </VBox>
-            <TableView fx:id="tabla" layoutX="233.0" layoutY="14.0" onMouseClicked="#handleTabla" prefHeight="362.0" prefWidth="417.0">
-              <columns>
-                <TableColumn fx:id="columnaId" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="columnaTitulo" prefWidth="75.0" text="Titulo" />
-                  <TableColumn fx:id="columnaAutor" prefWidth="75.0" text="Autor" />
-                  <TableColumn fx:id="columnaYear" prefWidth="75.0" text="Año" />
-                  <TableColumn fx:id="columnaPagina" prefWidth="75.0" text="Pagina" />
-              </columns>
-            </TableView>
-            <Button fx:id="insertar" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#handle" text="Insetar" />
-            <Button fx:id="actualizar" layoutX="76.0" layoutY="361.0" mnemonicParsing="false" onAction="#handle" text="Actualizar" />
-            <Button fx:id="eliminar" layoutX="159.0" layoutY="361.0" mnemonicParsing="false" onAction="#handle" text="Eliminar" />
-            <Button fx:id="limpiar" layoutX="87.0" layoutY="336.0" mnemonicParsing="false" onAction="#handle" text="Limpiar" />
-         </children>
-      </AnchorPane>
+      <Label text="ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label text="Titulo" GridPane.rowIndex="1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label text="Autor" GridPane.rowIndex="2">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label text="Año" GridPane.rowIndex="3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabla" onMouseClicked="#handleTabla" prefHeight="314.0" prefWidth="438.0" GridPane.columnIndex="4" GridPane.rowSpan="6">
+        <columns>
+          <TableColumn fx:id="columnaId" prefWidth="75.0" styleClass="table-header" text="ID" />
+          <TableColumn fx:id="columnaTitulo" prefWidth="75.0" text="Titulo" />
+            <TableColumn fx:id="columnaAutor" prefWidth="75.0" text="Autor" />
+            <TableColumn fx:id="columnaYear" prefWidth="75.0" text="Año" />
+            <TableColumn fx:id="columnaPagina" prefWidth="75.0" text="Pagina" />
+        </columns>
+      </TableView>
+      <TextField fx:id="entradaId" prefHeight="36.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+      <TextField fx:id="entradaTitulo" prefHeight="36.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <TextField fx:id="entradaAutor" prefHeight="36.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <TextField fx:id="entradaYear" prefHeight="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+      <TextField fx:id="entradaPagina" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <Button fx:id="insertar" mnemonicParsing="false" onAction="#handle" text="Insetar" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+      <Button fx:id="actualizar" mnemonicParsing="false" onAction="#handle" text="Actualizar" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+      <Button fx:id="eliminar" mnemonicParsing="false" onAction="#handle" text="Eliminar" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+      <Button fx:id="limpiar" mnemonicParsing="false" onAction="#handle" text="Limpiar" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+      <Label text="Pagina" GridPane.rowIndex="4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+      <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+      <Button mnemonicParsing="false" text="Cerrar" GridPane.columnSpan="5" GridPane.rowIndex="9" />
    </children>
-</StackPane>
+</GridPane>

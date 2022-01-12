@@ -26,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
 import javafxml.DesarrollosController;
+import javafxml.NivelesController;
 
 /**
  *
@@ -42,6 +43,8 @@ public class JavaFX extends Application {
     
     public int widthSide = 125;//WIDHT_SIDE 250
     public int heightSide = 125; //HEIGHT_SIDE 460
+    
+    public NivelesController niveles = new NivelesController();
     
     public void 
     init(Stage stage) {
@@ -89,7 +92,7 @@ public class JavaFX extends Application {
         
         top.setPrefSize(widthSide, heightSide);
         top.setAlignment(Pos.CENTER);
-        top.setStyle("-fx-border-color: black;");
+//        top.setStyle("-fx-border-color: black;");
         top.getChildren().addAll(boton);
         return top;
     } 
@@ -141,20 +144,16 @@ public class JavaFX extends Application {
             @Override public void handle(MouseEvent eventObject) {
                 if(desarrollos.isSelected()) {
                     borderPane.getChildren().removeAll(borderPane.getLeft());
-//                    borderPane.getChildren().removeAll(borderPane.getCenter());
                         
                     DesarrollosController devs = new DesarrollosController();
-//                        borderPane.setCenter(devs.panel1());
                     devs.desarrollos();
                 } else {
                     try {
                         Parent left = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
-                        borderPane.getChildren().removeAll(borderPane.getLeft());
-                        borderPane.setLeft(left);
-                        
                         Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-                        center.getChildren().removeAll();
-                        center.getChildren().addAll(niveles);
+                        
+                        borderPane.setLeft(left);
+                        borderPane.setCenter(niveles);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -169,20 +168,17 @@ public class JavaFX extends Application {
                         borderPane.getChildren().removeAll(borderPane.getLeft());
                         
                         Parent codigo = FXMLLoader.load(getClass().getResource("/i/code.fxml"));
-                        center.getChildren().removeAll();
-                        center.getChildren().addAll(codigo);
+                        borderPane.setCenter(codigo);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     try {
                         Parent left = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
-                        borderPane.getChildren().removeAll(borderPane.getLeft());
-                        borderPane.setLeft(left);
-                        
                         Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-                        center.getChildren().removeAll();
-                        center.getChildren().addAll(niveles);
+                        
+                        borderPane.setLeft(left);
+                        borderPane.setCenter(niveles);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -200,17 +196,8 @@ public class JavaFX extends Application {
     agregarHBoxBottom() {
         Button boton = new Button();
         boton.setText("Say 'Hello World'");
-        boton.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-                //in case we would like to close whole demo
-//                javafx.application.Platform.exit();
-//
-//                //however we want to close only this instance of stage
-//                stage.close();
-            }
+        boton.setOnAction((ActionEvent event) -> {
+            niveles.boton2();
         });
         
         
