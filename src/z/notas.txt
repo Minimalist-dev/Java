@@ -1,5 +1,3 @@
 - Codigo fuente, con albor de carpeta
+- Desarrollos ya echos
 
-- exportar
-- como acceder a los controladores en javafx
-- clase de controlador

@@ -7,22 +7,17 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.i.Panel1;
 import javafx.scene.Parent;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
 import javafxml.DesarrollosController;
@@ -33,7 +28,6 @@ import javafxml.NivelesController;
  * @author neury-dev
  */
 public class JavaFX extends Application {
-//    Scene scene = new Scene(borderPane, 1000, 500, Color.TRANSPARENT);
     public static BorderPane borderPane = new BorderPane();
     public HBox top                     = new HBox();
     public VBox left                    = new VBox();
@@ -41,33 +35,32 @@ public class JavaFX extends Application {
     public VBox right                   = new VBox();
     public HBox bottom                  = new HBox();
     
-    public int widthSide = 125;//WIDHT_SIDE 250
-    public int heightSide = 125; //HEIGHT_SIDE 460
+//    public int widthSide = 125;//WIDHT_SIDE 250
+//    public int heightSide = 125; //HEIGHT_SIDE 460
     
-    
+  
     public NivelesController niveles = new NivelesController();
     
     public void 
     init(Stage stage) {
-        HBox topObject      = agregarHBoxTop();
-        VBox leftObject     = agregarVBoxLeft();
-        center        = agregarStackPane();
-        VBox rightObject    = agregarVBoxRight();
-        HBox bottomObject   = agregarHBoxBottom();
+        top      = agregarHBoxTop();
+        left     = agregarVBoxLeft();
+        center   = agregarStackPane();
+        right    = agregarVBoxRight();
+        bottom   = agregarHBoxBottom();
         
-        borderPane.setTop(topObject);
-        borderPane.setLeft(leftObject);
+        borderPane.setTop(top);
+        borderPane.setLeft(left);
         borderPane.setCenter(center);
-        borderPane.setRight(rightObject);
-        borderPane.setBottom(bottomObject);
+        borderPane.setRight(right);
+        borderPane.setBottom(bottom);
         borderPane.getStyleClass().add("border-pane");
         borderPane.getTop().getStyleClass().add("top");
         borderPane.getLeft().getStyleClass().add("left");
         borderPane.getCenter().getStyleClass().add("center");
         borderPane.getRight().getStyleClass().add("right");
         borderPane.getBottom().getStyleClass().add("bottom");
-//        borderPane.setPrefSize(1000, 700);
-//        Scene scene = new Scene(borderPane, 1000, 500, Color.TRANSPARENT);
+
         Scene scene = new Scene(borderPane, 1000, 500);
 
         stage.setScene(scene);
@@ -92,8 +85,8 @@ public class JavaFX extends Application {
             }
         });
         
-        top.setPrefSize(widthSide, heightSide);
-        top.setAlignment(Pos.CENTER);
+//        top.setPrefSize(widthSide, heightSide);
+//        top.setAlignment(Pos.CENTER);
 //        top.setStyle("-fx-border-color: black;");
         top.getChildren().addAll(boton);
         return top;
@@ -197,10 +190,8 @@ public class JavaFX extends Application {
     public HBox 
     agregarHBoxBottom() {
         Bottom footer = new Bottom();
-        
-//        borderPane.setBottom(footer.bottom());
-        
-        footer.bottom();
+       
+        bottom.getChildren().add(footer.bottom());
         
         return bottom;
     }

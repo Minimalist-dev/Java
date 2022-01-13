@@ -1,5 +1,6 @@
 package javafxml.l;
 
+import javafxml.DesarrollosController;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,7 +19,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafxml.DesarrollosController;
 
 /**
  * FXML Controller class
@@ -59,6 +59,10 @@ public class SistemaMySQLController implements Initializable {
     private Button eliminar;
     @FXML
     private Button limpiar;
+    @FXML
+    private Button anterior;
+    @FXML
+    private Button siguiente;
     /**
      * Initializes the controller class.
      */
@@ -78,6 +82,10 @@ public class SistemaMySQLController implements Initializable {
             deleteRecord();
         } else if(event.getSource() == limpiar) {
             limpiar();
+        } else if(event.getSource() == anterior) {
+            anterior();
+        } else if(event.getSource() == siguiente) {
+            siguiente();
         }
         
         showTabla();
@@ -99,7 +107,7 @@ public class SistemaMySQLController implements Initializable {
         ObservableList<Tabla> tablaList = FXCollections.observableArrayList();
         
         Connection conn = getConnection();
-        String query    = "SELECT * FROM SistemaMySQL";
+        String query    = "SELECT * FROM SistemaMySQL LIMIT 1";
         Statement st;
         ResultSet rs;
         
@@ -157,7 +165,8 @@ public class SistemaMySQLController implements Initializable {
         
         executeQuery(query);
     }
-    private void executeQuery(String query) {
+    private void 
+    executeQuery(String query) {
         Connection conn = getConnection();
         Statement st;
         
@@ -185,5 +194,24 @@ public class SistemaMySQLController implements Initializable {
         entradaAutor.setText("");
         entradaYear.setText("");
         entradaPagina.setText("");
+    }
+    private void 
+    anterior() {
+        int pagina = 2;
+        
+//        pagina -= 2;
+        
+        System.out.println("Anterior: " + pagina--);
+    }
+    private void 
+    siguiente() {
+        int pagina = 2;
+        
+        int operador1 = 2;
+        int operador2 = 2 + pagina++;
+
+        System.out.println(Math.pow(operador1, operador2)); 
+        
+        System.out.println("Siguiente: " + Math.pow(operador1, operador2));
     }
 }

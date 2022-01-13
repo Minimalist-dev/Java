@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafxml.JavaFXMLController;
 
 /**
@@ -32,25 +33,16 @@ public class Bottom extends JavaFX {
     }
     public HBox 
     bottom() {
-        Pane hbox = new Pane();
-        hbox.setStyle("-fx-background-color: white;");
-        hbox.setStyle("-fx-border-color: black;");
+        VBox hbox = new VBox();
         
-        Label desarrollo = new Label("Desarrollo de Neury");
-        Label correo    = new Label("neury.developer@gmail.com");
+        Label desarrollo    = new Label("Desarrollo de Neury");
+        Label correo        = new Label("neury.developer@gmail.com");
+
+        hbox.getChildren().addAll(desarrollo, correo);
         
-        Button boton = new Button("Boton");
+        bottom.getChildren().add(hbox);
         
-        correo.setText("neury.developer@gmail.com");
-        
-        desarrollo.setStyle("-fx-text-fill: white");
-        correo.setStyle("-fx-text-fill: white");
-        
-        hbox.getChildren().addAll(desarrollo, boton, correo);
-        
-//        bottom.getChildren().add(hbox);
-        
-        borderPane.setBottom(hbox);
+        hbox.getStyleClass().add("v-box");
         
         return bottom;
     }
