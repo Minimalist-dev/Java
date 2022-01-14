@@ -22,16 +22,16 @@ import javafxml.JavaFXMLController;
 public class Bottom extends JavaFX {
     public HBox 
     bottom() {
-        VBox hbox = new VBox();
+        VBox vbox = new VBox();
         
         Label desarrollo    = new Label("Desarrollo de Neury");
         Label correo        = new Label("neury.developer@gmail.com");
 
-        hbox.getChildren().addAll(desarrollo, correo);
+        vbox.getChildren().addAll(desarrollo, correo);
+        bottom.getChildren().add(vbox);
         
-        bottom.getChildren().add(hbox);
-        
-        hbox.getStyleClass().add("v-box");
+        bottom.getStylesheets().add("/i/css/bottom.css");
+        vbox.getStyleClass().add("v-box");
         
         return bottom;
     }

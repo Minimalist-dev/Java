@@ -27,6 +27,8 @@ public class Left extends JavaFX {
         
         vbox.getChildren().addAll(html, xml, css, javascript, java, php, sql, json, aria, svg, apacheNetBeans, gitAndGitHub);
         left.getChildren().add(vbox);
+        
+        left.getStylesheets().add("/i/css/left.css");
         vbox.setId("skills");
         
         return left;
