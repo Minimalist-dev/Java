@@ -1,4 +1,4 @@
-package javafxml;
+package javafxml.l;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,9 +44,10 @@ public class DesarrollosController extends JavaFX implements Initializable {
             Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML public StackPane 
+    @FXML 
+    public StackPane 
     desarrollos() {
-        cargarDesarrollo("desarrollos");
+        cargarDesarrollo("/javafxml/desarrollos");
         
         return center;
     }

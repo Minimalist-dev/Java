@@ -20,7 +20,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
-import javafxml.DesarrollosController;
+import javafxml.l.DesarrollosController;
 import javafxml.NivelesController;
 
 /**
@@ -54,19 +54,21 @@ public class JavaFX extends Application {
         borderPane.setCenter(center);
         borderPane.setRight(right);
         borderPane.setBottom(bottom);
+
+        Scene scene = new Scene(borderPane, 1000, 500);
+
+        stage.setScene(scene);
+
         borderPane.getStyleClass().add("border-pane");
         borderPane.getTop().getStyleClass().add("top");
         borderPane.getLeft().getStyleClass().add("left");
         borderPane.getCenter().getStyleClass().add("center");
         borderPane.getRight().getStyleClass().add("right");
         borderPane.getBottom().getStyleClass().add("bottom");
-
-        Scene scene = new Scene(borderPane, 1000, 500);
-
-        stage.setScene(scene);
-
+        
         scene.getStylesheets().add("/i/css/root.css");
         scene.getStylesheets().add("/i/css/border_pane.css");
+        scene.getStylesheets().add("/i/css/left.css");
         scene.getStylesheets().add("/i/css/bottom.css");
     }
     
@@ -93,14 +95,10 @@ public class JavaFX extends Application {
     } 
     public VBox
     agregarVBoxLeft() {
-        Parent lefta;
-        try {
-            lefta = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
-            left.getChildren().addAll(lefta);
-        } catch (IOException ex) {
-            Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        Left izquierda = new Left();
+       
+        left.getChildren().add(izquierda.izquierda());
+
         return left;
     }
     public StackPane 
@@ -134,20 +132,24 @@ public class JavaFX extends Application {
         
         desarrollos.setGraphic(svgDesarrollo);
         codigo.setGraphic(svgCodigo);
-        
+        /* 
+            clases externas 
+        */
+//        Left izquierda              = new Left();
+//        DesarrollosController devs  = new DesarrollosController();
+       
         desarrollos.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override public void handle(MouseEvent eventObject) {
                 if(desarrollos.isSelected()) {
                     borderPane.getChildren().removeAll(borderPane.getLeft());
-                        
-                    DesarrollosController devs = new DesarrollosController();
+                    DesarrollosController devs  = new DesarrollosController();
                     devs.desarrollos();
                 } else {
                     try {
-                        Parent left = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
                         Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-                        
-                        borderPane.setLeft(left);
+                        Left izquierda              = new Left();
+                        borderPane.setLeft(izquierda.izquierda());
+
                         borderPane.setCenter(niveles);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
@@ -169,10 +171,10 @@ public class JavaFX extends Application {
                     }
                 } else {
                     try {
-                        Parent left = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
+//                        Parent left = FXMLLoader.load(getClass().getResource("/javafxml/left.fxml"));
                         Parent niveles = FXMLLoader.load(getClass().getResource("/javafxml/niveles.fxml"));
-                        
-                        borderPane.setLeft(left);
+                        Left izquierda              = new Left();
+                        borderPane.setLeft(izquierda.izquierda());
                         borderPane.setCenter(niveles);
                     } catch (IOException ex) {
                         Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
@@ -192,6 +194,7 @@ public class JavaFX extends Application {
         Bottom footer = new Bottom();
        
         bottom.getChildren().add(footer.bottom());
+        bottom.getStylesheets().add("/i/css/bottom.css");
         
         return bottom;
     }

@@ -1,6 +1,6 @@
 package javafxml.l;
 
-import javafxml.DesarrollosController;
+import javafxml.l.DesarrollosController;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import sql.Usuario;
 
 /**
  * FXML Controller class
@@ -26,8 +27,7 @@ import javafx.scene.layout.AnchorPane;
  * @author neury-dev
  */
 public class SistemaMySQLController implements Initializable {
-    @FXML public AnchorPane anclar;
-    public DesarrollosController dev = new DesarrollosController();
+//    @FXML public AnchorPane anclar;
 
     @FXML
     private TextField entradaId;
@@ -68,7 +68,6 @@ public class SistemaMySQLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        dev.sistema(anclar);
         // TODO
         showTabla();
     }    
@@ -90,30 +89,14 @@ public class SistemaMySQLController implements Initializable {
         
         showTabla();
     }
-    public Connection 
-    getConnection() {
-        Connection conn = null;
-        
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "");
-            return conn;
-        } catch(Exception ex) {
-            System.out.println("Error: " + ex.getMessage());
-            return null;
-        } 
-    }
     public ObservableList<Tabla> 
     getTablaList() {
         ObservableList<Tabla> tablaList = FXCollections.observableArrayList();
-        
-        Connection conn = getConnection();
-        String query    = "SELECT * FROM SistemaMySQL LIMIT 1";
-        Statement st;
-        ResultSet rs;
+
+        String sql = "SELECT * FROM SistemaMySQL";
         
         try {
-            st = conn.createStatement();
-            rs = st.executeQuery(query);
+            ResultSet rs = Usuario.getStatement().executeQuery(sql);
             
             Tabla tabla;
             
@@ -140,42 +123,30 @@ public class SistemaMySQLController implements Initializable {
     }
     private void 
     insertRecord() {
-        String query = "INSERT INTO SistemaMySQL VALUES(" 
+        String sql = "INSERT INTO SistemaMySQL VALUES(" 
             + entradaId.getText() + ", '" 
             + entradaTitulo.getText() + "', '" 
             + entradaAutor.getText() + "', " 
             + entradaYear.getText() + ", " 
             + entradaPagina.getText() + ")";
         
-        executeQuery(query);
+        Usuario.executeUpdate(sql);
     }
     private void 
     updateRecord() {
-        String query = "UPDATE SistemaMySQL SET "
+        String sql = "UPDATE SistemaMySQL SET "
             + "titulo='" + entradaTitulo.getText() + "', "
             + "autor='" + entradaAutor.getText() + "', "
             + "year=" + entradaYear.getText() + ", "
             + "pagina=" +  entradaPagina.getText() + " WHERE id = " + entradaId.getText();
         
-        executeQuery(query);
+       Usuario.executeUpdate(sql);
     }
     private void 
     deleteRecord() {
-        String query = "DELETE FROM SistemaMySQL WHERE id = " + entradaId.getText();
+        String sql = "DELETE FROM SistemaMySQL WHERE id = " + entradaId.getText();
         
-        executeQuery(query);
-    }
-    private void 
-    executeQuery(String query) {
-        Connection conn = getConnection();
-        Statement st;
-        
-        try {
-            st = conn.createStatement();
-            st.executeUpdate(query);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
+        Usuario.executeUpdate(sql);
     }
     @FXML public void 
     handleTabla(MouseEvent event) {

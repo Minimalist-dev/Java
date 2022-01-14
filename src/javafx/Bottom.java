@@ -20,17 +20,6 @@ import javafxml.JavaFXMLController;
  * @author neury-dev
  */
 public class Bottom extends JavaFX {
-    public void 
-    cargarDesarrollo(String pane) { 
-        try {
-            Parent desarrollo = FXMLLoader.load(getClass().getResource(pane + ".fxml"));
-  
-            borderPane.getChildren().removeAll(borderPane.getCenter());
-            borderPane.setCenter(desarrollo);
-        } catch (IOException ex) {
-            Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     public HBox 
     bottom() {
         VBox hbox = new VBox();
