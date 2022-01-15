@@ -21,7 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
 import javafxml.l.DesarrollosController;
-import javafxml.NivelesController;
+import z.NivelesController;
 
 /**
  *

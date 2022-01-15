@@ -1,5 +1,7 @@
 package javafx;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -8,6 +10,7 @@ import javafx.scene.layout.VBox;
  * @author neury-dev
  */
 public class Left extends JavaFX {
+    public Center centro = new Center();
     public VBox 
     izquierda() {
         VBox vbox = new VBox();
@@ -25,6 +28,18 @@ public class Left extends JavaFX {
         Button apacheNetBeans   = new Button("Apache NetBeans");
         Button gitAndGitHub     = new Button("Git y GitHub");
         
+        html.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void 
+            handle(ActionEvent event) {
+                centro.html();
+            }
+        });
+        xml.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void 
+            handle(ActionEvent event) {
+                centro.xml();
+            }
+        });
         vbox.getChildren().addAll(html, xml, css, javascript, java, php, sql, json, aria, svg, apacheNetBeans, gitAndGitHub);
         left.getChildren().add(vbox);
         

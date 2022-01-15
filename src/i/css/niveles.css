@@ -2,32 +2,17 @@
     Created on : 1 ene. 2022, 8:41:12 a. m.
     Author     : neury-dev
 */
-/*.niveles {
-    -fx-background-color: white;
+.niveles {
+    -fx-alignment: center;
     -fx-pref-width: 449px;
     -fx-pref-height: 283px;
-    -fx-alignment: CENTER;
-    -fx-min-width: USE_PREF_SiZE;
-    -fx-min-height: USE_PREF_SiZE;
-    -fx-max-width: USE_PREF_SiZE;
-    -fx-max-height: USE_PREF_SiZE;
-}*/
-#niveles {
-    -fx-background-color: red;
-    -fx-pref-width: 449;
-    -fx-pref-height: 283;
-    -fx-alignment: center;
-/*    -fx-min-width: USE_PREF_SiZE;
-    -fx-min-height: USE_PREF_SiZE;
-    -fx-max-width: USE_PREF_SiZE;
-    -fx-max-height: USE_PREF_SiZE;*/
-}
-#anclar {
-    -fx-alignment: CENTER;
 }
 .line {
     -fx-stroke: n-color-1;
     -fx-stroke-width: 2;
+}
+.text {
+    -fx-fill: n-color-1;
 }
 .circle {
     -fx-fill: n-color-2;
