@@ -1,11 +1,7 @@
 package javafxml.l;
 
-import javafxml.l.DesarrollosController;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +14,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import sql.Usuario;
 
 /**
@@ -27,42 +22,26 @@ import sql.Usuario;
  * @author neury-dev
  */
 public class SistemaMySQLController implements Initializable {
-//    @FXML public AnchorPane anclar;
-
-    @FXML
-    private TextField entradaId;
-    @FXML
-    private TextField entradaTitulo;
-    @FXML
-    private TextField entradaAutor;
-    @FXML
-    private TextField entradaYear;
-    @FXML
-    private TextField entradaPagina;
-    @FXML
-    private TableView<Tabla> tabla;
-    @FXML
-    private TableColumn<Tabla, Integer> columnaId;
-    @FXML
-    private TableColumn<Tabla, String> columnaTitulo;
-    @FXML
-    private TableColumn<Tabla, String> columnaAutor;
-    @FXML
-    private TableColumn<Tabla, Integer> columnaYear;
-    @FXML
-    private TableColumn<Tabla, Integer> columnaPagina;
-    @FXML
-    private Button insertar;
-    @FXML
-    private Button actualizar;
-    @FXML
-    private Button eliminar;
-    @FXML
-    private Button limpiar;
-    @FXML
-    private Button anterior;
-    @FXML
-    private Button siguiente;
+    
+    @FXML private TextField entradaId;
+    @FXML private TextField entradaTitulo;
+    @FXML private TextField entradaAutor;
+    @FXML private TextField entradaYear;
+    @FXML private TextField entradaPagina;
+    
+    @FXML private TableView<Tabla> tabla;
+    @FXML private TableColumn<Tabla, Integer> columnaId;
+    @FXML private TableColumn<Tabla, String> columnaTitulo;
+    @FXML private TableColumn<Tabla, String> columnaAutor;
+    @FXML private TableColumn<Tabla, Integer> columnaYear;
+    @FXML private TableColumn<Tabla, Integer> columnaPagina;
+    
+    @FXML private Button insertar;
+    @FXML private Button actualizar;
+    @FXML private Button eliminar;
+    @FXML private Button limpiar;
+    @FXML private Button anterior;
+    @FXML private Button siguiente;
     /**
      * Initializes the controller class.
      */

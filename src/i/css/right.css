@@ -17,7 +17,7 @@
     -fx-border: none;
     -fx-cursor: hand;
 }
-.toggle-button .svg-path{
+.toggle-button .svg-path {
     -fx-fill: n-color-2;
 }
 .toggle-button:selected {

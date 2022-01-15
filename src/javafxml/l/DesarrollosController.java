@@ -9,9 +9,7 @@ import javafx.JavaFX;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
-import z.JavaFXMLController;
 
 /**
  * FXML Controller class
@@ -31,25 +29,22 @@ public class DesarrollosController extends JavaFX implements Initializable {
     public void 
     cargarDesarrollo(String pane) { 
         try {
-            Parent desarrollo = FXMLLoader.load(getClass().getResource(pane + ".fxml"));
-  
-            borderPane.getChildren().removeAll(borderPane.getCenter());
-            borderPane.setCenter(desarrollo);
+            borderPane.setCenter(FXMLLoader.load(getClass().getResource(pane + ".fxml")));
+            //Parent desarrollo = FXMLLoader.load(getClass().getResource(pane + ".fxml"));
+            //borderPane.setCenter(desarrollo);
         } catch (IOException ex) {
-            Logger.getLogger(JavaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesarrollosController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @FXML 
     public StackPane 
     desarrollos() {
         cargarDesarrollo("/javafxml/desarrollos");
-        
         return center;
     }
     @FXML public StackPane 
     sistemaMySQL() {
         cargarDesarrollo("/javafxml/dev/sistemaMySQL");
-        
         return center;
     }
 

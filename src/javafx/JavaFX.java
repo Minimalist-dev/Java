@@ -21,7 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
 import javafxml.l.DesarrollosController;
-import z.NivelesController;
 
 /**
  *
@@ -34,13 +33,8 @@ public class JavaFX extends Application {
     public StackPane center             = new StackPane();
     public VBox right                   = new VBox();
     public HBox bottom                  = new HBox();
-    
 //    public int widthSide = 125;//WIDHT_SIDE 250
 //    public int heightSide = 125; //HEIGHT_SIDE 460
-    
-  
-    public NivelesController niveles = new NivelesController();
-    
     public void 
     init(Stage stage) {
         top      = agregarHBoxTop();
@@ -83,10 +77,6 @@ public class JavaFX extends Application {
 //                stage.close();
             }
         });
-        
-//        top.setPrefSize(widthSide, heightSide);
-//        top.setAlignment(Pos.CENTER);
-//        top.setStyle("-fx-border-color: black;");
         top.getChildren().addAll(boton);
         return top;
     } 
