@@ -48,14 +48,17 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="tabla" onMouseClicked="#handleTabla" prefHeight="233.0" prefWidth="374.0" GridPane.columnIndex="4" GridPane.rowSpan="6">
+      <TableView fx:id="tabla" onMouseClicked="#handleTabla" prefHeight="233.0" prefWidth="375.0" GridPane.columnIndex="4" GridPane.rowSpan="6">
         <columns>
           <TableColumn fx:id="columnaId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="columnaTitulo" prefWidth="75.0" text="Titulo" />
             <TableColumn fx:id="columnaAutor" prefWidth="75.0" text="Autor" />
             <TableColumn fx:id="columnaYear" prefWidth="75.0" text="Año" />
-            <TableColumn fx:id="columnaPagina" prefWidth="66.0" text="Pagina" />
+            <TableColumn fx:id="columnaPagina" prefWidth="75.0" text="Pagina" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <TextField fx:id="entradaId" GridPane.columnIndex="1" GridPane.columnSpan="3" />
       <TextField fx:id="entradaTitulo" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />

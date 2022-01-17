@@ -39,7 +39,7 @@
     -fx-border-radius: 4;
 }
 .table-view {
-    -fx-background-color: n-color-1;
+    -fx-background-color: n-color-2;
 }
 .table-view .column-header {
     -fx-background-color: n-color-2;

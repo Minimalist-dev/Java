@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -65,19 +63,10 @@ public class JavaFX extends Application {
     }
     public HBox 
     agregarHBoxTop() {
-        Button boton = new Button();
-        boton.setText("Say 'Hello World'");
-        boton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-                //in case we would like to close whole demo
-//                javafx.application.Platform.exit();
-//                //however we want to close only this instance of stage
-//                stage.close();
-            }
-        });
-        top.getChildren().addAll(boton);
+        Top header = new Top();
+       
+        top.getChildren().add(header.top());
+        
         return top;
     } 
     public VBox
