@@ -18,14 +18,15 @@ public class Paginacion {
     
     public int 
     filasPorPagina() {
-        return 4;
+        return 10;
     }
     public int
     anterior() {
-        if(getPaso() > 0) {
+        if(getPaso() >= 1) {
             pagina = (getPaso() - 1) * filasPorPagina();
             setPaso(getPaso() - 1);
-        }   
+        }
+        
         return pagina;
     }
     public int

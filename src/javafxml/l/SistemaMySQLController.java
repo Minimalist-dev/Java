@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,16 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.l.Paginacion;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import sql.Usuario;
 
 /**
@@ -33,17 +31,17 @@ import sql.Usuario;
 public class SistemaMySQLController implements Initializable {
     
     @FXML private TextField entradaId;
-    @FXML private TextField entradaTitulo;
-    @FXML private TextField entradaAutor;
-    @FXML private TextField entradaYear;
-    @FXML private TextField entradaPagina;
+    @FXML private TextField entradaNombre;
+    @FXML private TextField entradaMarca;
+    @FXML private TextField entradaPrecio;
+    @FXML private Label res;
     
     @FXML private TableView<Tabla> tabla;
     @FXML private TableColumn<Tabla, Integer> columnaId;
-    @FXML private TableColumn<Tabla, String> columnaTitulo;
-    @FXML private TableColumn<Tabla, String> columnaAutor;
-    @FXML private TableColumn<Tabla, Integer> columnaYear;
-    @FXML private TableColumn<Tabla, Integer> columnaPagina;
+    @FXML private TableColumn<Tabla, String> columnaNombre;
+    @FXML private TableColumn<Tabla, String> columnaMarca;
+    @FXML private TableColumn<Tabla, Integer> columnaPrecio;
+    @FXML private TableColumn<Tabla, String> columnaFecha;
     
     @FXML private Button insertar;
     @FXML private Button actualizar;
@@ -51,28 +49,44 @@ public class SistemaMySQLController implements Initializable {
     @FXML private Button limpiar;
     @FXML private Button anterior;
     @FXML private Button siguiente;
+    @FXML private TextField paginaciones;
     
-    public Paginacion pagination = new Paginacion();
-    
-//    public int page;
-//    public int page2;
+    private String sql;
+    private Paginacion paginacion = new Paginacion();
+    private int limite;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        showTabla();
+        columnas(0);
         limite();
+        
+        entradaNombre.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String viejo, String nuevo) {
+                dasactivar(false, true, true);
+            }
+        });
+        
+        dasactivar(true, true, true);
     }    
     @FXML public void 
     handle(ActionEvent event) {
         if(event.getSource() == insertar) {
-            insertRecord(); showTabla();
+            insertar(); 
+            columnas(0);
+            limpiar();
         } else if(event.getSource() == actualizar) {
-            updateRecord(); showTabla();
+            actualizar(); 
+            columnas(0);
+            limpiar();
         } else if(event.getSource() == eliminar) {
-            deleteRecord(); showTabla();
+            eliminar(); 
+            columnas(0);
+            limpiar();
         } else if(event.getSource() == limpiar) {
             limpiar();
         } else if(event.getSource() == anterior) {
@@ -81,164 +95,173 @@ public class SistemaMySQLController implements Initializable {
             siguiente();
         }
     }
-    public ObservableList<Tabla> 
-    getTablaList() {
-        ObservableList<Tabla> tablaList = FXCollections.observableArrayList();
-
-        String sql = "SELECT * FROM SistemaMySQL LIMIT 4";
-        
-        try {
-            ResultSet rs = Usuario.getStatement().executeQuery(sql);
-            
-            Tabla tabla;
-            
-            while(rs.next()) {
-                tabla = new Tabla(rs.getInt("id"), rs.getString("titulo"), rs.getString("autor"), rs.getInt("year"), rs.getInt("pagina"));
-                tablaList.add(tabla);
-            }
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
-        return tablaList;
-    } 
-    public void 
-    showTabla() {
-        ObservableList<Tabla> list = getTablaList();
-        
-        columnaId.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("id"));
-        columnaTitulo.setCellValueFactory(new PropertyValueFactory<Tabla, String>("titulo"));
-        columnaAutor.setCellValueFactory(new PropertyValueFactory<Tabla, String>("autor"));
-        columnaYear.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("Year"));
-        columnaPagina.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("pagina"));
-        
-        tabla.setItems(list);
-    }
-    private void 
-    insertRecord() {
-        String sql = "INSERT INTO SistemaMySQL VALUES(" 
-            + entradaId.getText() + ", '" 
-            + entradaTitulo.getText() + "', '" 
-            + entradaAutor.getText() + "', " 
-            + entradaYear.getText() + ", " 
-            + entradaPagina.getText() + ")";
-        
-        Usuario.executeUpdate(sql);
-    }
-    private void 
-    updateRecord() {
-        String sql = "UPDATE SistemaMySQL SET "
-            + "titulo='" + entradaTitulo.getText() + "', "
-            + "autor='" + entradaAutor.getText() + "', "
-            + "year=" + entradaYear.getText() + ", "
-            + "pagina=" +  entradaPagina.getText() + " WHERE id = " + entradaId.getText();
-        
-       Usuario.executeUpdate(sql);
-    }
-    private void 
-    deleteRecord() {
-        String sql = "DELETE FROM SistemaMySQL WHERE id = " + entradaId.getText();
-        
-        Usuario.executeUpdate(sql);
-    }
     @FXML public void 
     handleTabla(MouseEvent event) {
         Tabla tab = tabla.getSelectionModel().getSelectedItem();
         
         entradaId.setText("" + tab.getId());
-        entradaTitulo.setText("" + tab.getTitulo()); 
-        entradaAutor.setText("" + tab.getAutor());
-        entradaYear.setText("" + tab.getYear());
-        entradaPagina.setText("" + tab.getPagina());
+        entradaNombre.setText("" + tab.getNombre()); 
+        entradaMarca.setText("" + tab.getMarca());
+        entradaPrecio.setText("" + tab.getPrecio());
+        res.setText("Fila seleccionada.");
+        
+        dasactivar(true, false, false);
+    }
+    public void 
+    columnas(int pagina) {
+        ObservableList<Tabla> lista;
+
+        if(pagina == 0) {
+            lista = filas(0);
+        } else {
+            lista = filas(pagina);
+        }
+        
+        columnaId.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("id"));
+        columnaNombre.setCellValueFactory(new PropertyValueFactory<Tabla, String>("nombre"));
+        columnaMarca.setCellValueFactory(new PropertyValueFactory<Tabla, String>("marca"));
+        columnaPrecio.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("precio"));
+        columnaFecha.setCellValueFactory(new PropertyValueFactory<Tabla, String>("fecha"));
+        
+        tabla.setItems(lista);
+    }
+    public ObservableList<Tabla> 
+    filas(int pagina) {
+        ObservableList<Tabla> lista = FXCollections.observableArrayList();
+
+        if(pagina == 0) {
+            sql = "SELECT * FROM SistemaMySQL LIMIT 10";
+        } else {
+            sql = "SELECT * FROM SistemaMySQL LIMIT 10 OFFSET " + pagina;
+        }
+        
+        try {
+            ResultSet res = Usuario.getStatement().executeQuery(sql);
+            
+            Tabla tabla;
+            
+            while(res.next()) {
+                tabla = new Tabla(
+                    res.getInt("id"), 
+                    res.getString("nombre"), 
+                    res.getString("marca"), 
+                    res.getDouble("precio"), 
+                    res.getString("fecha")
+                );
+                
+                lista.add(tabla);
+            }
+        } catch(Exception error) {
+            error.printStackTrace();
+        }
+        return lista;
+    } 
+    private void 
+    insertar() {
+        String sql = "INSERT INTO SistemaMySQL VALUES(NULL, '" 
+            + entradaNombre.getText() + "', '" 
+            + entradaMarca.getText() + "', " 
+            + entradaPrecio.getText() + ", " 
+            + "NOW())";
+        
+        Usuario.executeUpdate(sql);
+        
+        if(Usuario.executeUpdate(sql) == 1) {
+            res.setText("Inserción exitosa.");
+        } else {
+            res.setText("Error de inserción.");
+        }
+        
+        dasactivar(true, true, true);
+    }
+    private void 
+    actualizar() {
+        String sql = "UPDATE SistemaMySQL SET "
+            + "nombre   = '" + entradaNombre.getText() + "', "
+            + "marca    = '" + entradaMarca.getText()  + "', "
+            + "precio   = "  + entradaPrecio.getText() + " WHERE id = " + entradaId.getText();
+        
+        Usuario.executeUpdate(sql);
+       
+        if(Usuario.executeUpdate(sql) == 1) {
+            res.setText("Actualización exitosa.");
+        } else {
+            res.setText("Error de actualización.");
+        }
+        
+        dasactivar(true, true, true);
+    }
+    private void 
+    eliminar() {
+        String sql = "DELETE FROM SistemaMySQL WHERE id = " + entradaId.getText();
+        
+        int estado = Usuario.executeUpdate(sql);
+        
+        if(estado == 1) {
+           res.setText("Eliminación exitosa.");
+        } else {
+           res.setText("Error de eliminación.");
+        }
+        
+        dasactivar(true, true, true);
     }
     private void 
     limpiar() {
         entradaId.setText("");
-        entradaTitulo.setText(""); 
-        entradaAutor.setText("");
-        entradaYear.setText("");
-        entradaPagina.setText("");
-    }
-
-    
-    
-//    public int getPaso() {
-//        return page2;
-//    }
-//    public void setPaso(int page2) {
-//        this.page2 = page2;
-//    }
-//    public int itemsPerPage() {
-//        return 4;
-//    }
-    public void 
-    showTabla2(int pagina) { 
-        ObservableList<Tabla> list = paginal(pagina);
+        entradaNombre.setText(""); 
+        entradaMarca.setText("");
+        entradaPrecio.setText("");
+        res.setText("");
         
-        columnaId.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("id"));
-        columnaTitulo.setCellValueFactory(new PropertyValueFactory<Tabla, String>("titulo"));
-        columnaAutor.setCellValueFactory(new PropertyValueFactory<Tabla, String>("autor"));
-        columnaYear.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("Year"));
-        columnaPagina.setCellValueFactory(new PropertyValueFactory<Tabla, Integer>("pagina"));
-        
-        tabla.setItems(list);
+        dasactivar(true, true, true);
     }
-    public ObservableList<Tabla> 
-    paginal(int pagina) {
-        ObservableList<Tabla> tablaList = FXCollections.observableArrayList();
-
-        String sql = "SELECT * FROM SistemaMySQL LIMIT 4 OFFSET " + pagina;
-        
-        try {
-            ResultSet rs = Usuario.getStatement().executeQuery(sql);
-            
-            Tabla tabla;
-            
-            while(rs.next()) {
-                tabla = new Tabla(rs.getInt("id"), rs.getString("titulo"), rs.getString("autor"), rs.getInt("year"), rs.getInt("pagina"));
-                tablaList.add(tabla);
-            }
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
-        return tablaList;
+    private void 
+    dasactivar(Boolean a, Boolean e, Boolean i) {
+        insertar.setDisable(a);
+        actualizar.setDisable(e);
+        eliminar.setDisable(i);
     }
-    
     public void
     limite() {
         String sql = "SELECT COUNT(id) AS limite FROM SistemaMySQL";
 
         try {
-            ResultSet rs = Usuario.getStatement().executeQuery(sql);
+            ResultSet res = Usuario.getStatement().executeQuery(sql);
             
-            while(rs.next()) {
-                rs.getInt("limite");
-                System.out.println("Res: " + rs.getInt("limite"));
+            while(res.next()) {
+                limite = res.getInt("limite");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(SistemaMySQLController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException error) {
+            Logger.getLogger(SistemaMySQLController.class.getName()).log(Level.SEVERE, null, error);
         }
     }
     private void 
     anterior() {
-        showTabla2(pagination.anterior());
-//        if(getPaso() > 0) {
-//            page = (getPaso() - 1) * itemsPerPage();
-//            setPaso(getPaso() - 1);
-            
-//            showTabla2(page);
-//        }   
+        columnas(paginacion.anterior());  
+        paginaciones();
     }
     private void 
     siguiente() {
-        showTabla2(pagination.siguiente());
-//        if(getPaso() == 0) {
-//            page = 1 * itemsPerPage();
-//            setPaso(1);
-//        } else {
-//            page = (getPaso() + 1) * itemsPerPage();
-//            setPaso(getPaso() + 1);
-//        }
+        columnas(paginacion.siguiente());
+        paginaciones();
+    }
+    public void
+    paginaciones() {
+        int paginas = (int) Math.ceil(limite / paginacion.filasPorPagina());
         
-//        showTabla2(page);
+        if(paginacion.getPaso() > 0) {
+            paginaciones.setText((paginacion.getPaso() + 1) + "/" + (paginas + 1));
+        } else {
+            paginaciones.setText("1/" + paginas);
+        }
+        
+        if(paginacion.getPaso() <= 0) {
+            anterior.setDisable(true);
+        } else if(paginacion.getPaso() >= paginas) {
+            siguiente.setDisable(true);
+        } else {
+            anterior.setDisable(false);
+            siguiente.setDisable(false);
+        }
     }
 }

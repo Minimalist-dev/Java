@@ -31,8 +31,7 @@ public class JavaFX extends Application {
     public StackPane center             = new StackPane();
     public VBox right                   = new VBox();
     public HBox bottom                  = new HBox();
-//    public int widthSide = 125;//WIDHT_SIDE 250
-//    public int heightSide = 125; //HEIGHT_SIDE 460
+    
     public void 
     init(Stage stage) {
         top      = agregarHBoxTop();

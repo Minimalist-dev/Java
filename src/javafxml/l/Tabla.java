@@ -6,46 +6,59 @@ package javafxml.l;
  */
 public class Tabla {
     private int id;
-    private String titulo;
-    private String autor;
-    private int year;
-    private int pagina;
+    private String nombre;
+    private String marca;
+    private Double precio;
+    private String fecha;
 
-    public Tabla(int id, String titulo, String autor, int year, int pagina) {
+    public Tabla(int id, String nombre, String marca, Double precio, String fecha) {
         this.id = id;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.year = year;
-        this.pagina = pagina;
+        this.nombre = nombre;
+        this.marca = marca;
+        this.precio = precio;
+        this.fecha = fecha;
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    public String getTitulo() {
-        return titulo;
+
+    public String getNombre() {
+        return nombre;
     }
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public String getAutor() {
-        return autor;
+
+    public String getMarca() {
+        return marca;
     }
-    public void setAutor(String autor) {
-        this.autor = autor;
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
-    public int getYear() {
-        return year;
+
+    public Double getPrecio() {
+        return precio;
     }
-    public void setYear(int year) {
-        this.year = year;
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
-    public int getPagina() {
-        return pagina;
+
+    public String getFecha() {
+        return fecha;
     }
-    public void setPagina(int pagina) {
-        this.pagina = pagina;
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
+
+   
+ 
 }

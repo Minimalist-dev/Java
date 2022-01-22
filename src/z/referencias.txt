@@ -1,3 +1,11 @@
-https://docs.oracle.com/javase/8/javafx/api/toc.htm
-https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html
-https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html
+Java FX:
+    https://docs.oracle.com/javase/8/javafx/api/toc.htm
+
+Java SE:
+    https://docs.oracle.com/javase/8/docs/api/overview-summary.html
+
+CSS:
+    https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html
+
+XML:
+    https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html

@@ -17,7 +17,7 @@ public class Top extends JavaFX  {
         AnchorPane anclar = new AnchorPane();
         anclar.setPrefSize(968, 100);
         
-        Label logo = new Label("Doc. Java");
+//        Label logo = new Label("Doc. Java");
 
         MenuBar menuBar = new MenuBar();
 
@@ -28,13 +28,14 @@ public class Top extends JavaFX  {
         info.getItems().addAll(sobreMi);
         
         menuBar.getMenus().addAll(menuView, info);
-        AnchorPane.setLeftAnchor(logo, 0.0);
+//        AnchorPane.setLeftAnchor(logo, 0.0);
         AnchorPane.setRightAnchor(menuBar, 0.0);
-        anclar.getChildren().addAll(logo, menuBar);
+//        anclar.getChildren().addAll(logo, menuBar);
+        anclar.getChildren().addAll(menuBar);
         top.getChildren().addAll(anclar);
         
         top.getStylesheets().add("/i/css/top.css");
-        logo.getStyleClass().add("logo");
+//        logo.getStyleClass().add("logo");
         
         return top;
     }
