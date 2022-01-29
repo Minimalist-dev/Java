@@ -31,7 +31,7 @@
     -fx-fill: n-color-1;
 }
 .button {
-    -fx-fill: n-color-1;
+    -fx-text-fill: n-color-1;
     -fx-background-color: n-color-4;
     -fx-background-radius: 4px;
     -fx-font-size: 10px;

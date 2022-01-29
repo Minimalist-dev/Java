@@ -37,10 +37,19 @@ public class DesarrollosController extends JavaFX implements Initializable {
             Logger.getLogger(DesarrollosController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML 
-    public StackPane 
-    desarrollos() {
-        cargarDesarrollo("/javafxml/desarrollos");
+    @FXML public StackPane 
+    loginSesion() {
+        cargarDesarrollo("/javafxml/dev/dev/login");
+        return center;
+    }
+    @FXML public StackPane 
+    login() {
+        cargarDesarrollo("/javafxml/dev/login");
+        return center;
+    }
+    @FXML public StackPane 
+    identidad() {
+        cargarDesarrollo("/javafxml/dev/identidad");
         return center;
     }
     @FXML public StackPane 
@@ -48,5 +57,10 @@ public class DesarrollosController extends JavaFX implements Initializable {
         cargarDesarrollo("/javafxml/dev/sistemaMySQL");
         return center;
     }
-
+    @FXML 
+    public StackPane 
+    desarrollos() {
+        cargarDesarrollo("/javafxml/desarrollos");
+        return center;
+    }
 }

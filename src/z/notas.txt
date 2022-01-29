@@ -1,3 +1,5 @@
 - Codigo fuente, con albor de carpeta
 - Desarrollos ya echos
+- Encriptar
+- Email
 

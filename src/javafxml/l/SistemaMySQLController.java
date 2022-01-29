@@ -1,8 +1,10 @@
 package javafxml.l;
 
+import javafx.l.Tabla;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.converter.DateTimeStringConverter;
 import sql.Usuario;
 
 /**
@@ -52,9 +55,13 @@ public class SistemaMySQLController implements Initializable {
     @FXML private TextField paginaciones;
     
     private String sql;
-    private Paginacion paginacion = new Paginacion();
+    private DateTimeStringConverter colocarFormato  = new DateTimeStringConverter("yy-MM-dd HH:mm:ss");
+    private Date fecha                              = new Date();
+    private DateTimeStringConverter obtenerFormato  = new DateTimeStringConverter("dd/MM/yy");
+    private Paginacion paginacion                   = new Paginacion();
     private int limite;
 
+    
     /**
      * Initializes the controller class.
      */
@@ -141,12 +148,14 @@ public class SistemaMySQLController implements Initializable {
             Tabla tabla;
             
             while(res.next()) {
+                fecha = colocarFormato.fromString(res.getString("fecha"));
+
                 tabla = new Tabla(
                     res.getInt("id"), 
                     res.getString("nombre"), 
                     res.getString("marca"), 
                     res.getDouble("precio"), 
-                    res.getString("fecha")
+                    obtenerFormato.toString(fecha)
                 );
                 
                 lista.add(tabla);
@@ -252,7 +261,7 @@ public class SistemaMySQLController implements Initializable {
         if(paginacion.getPaso() > 0) {
             paginaciones.setText((paginacion.getPaso() + 1) + "/" + (paginas + 1));
         } else {
-            paginaciones.setText("1/" + paginas);
+            paginaciones.setText("1/" + (paginas + 1));
         }
         
         if(paginacion.getPaso() <= 0) {
