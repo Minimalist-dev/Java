@@ -63,8 +63,6 @@ public class Expresiones extends JavaFX {
         grid.getStylesheets().add("/i/css/dev/expresiones.css");
         grid.getStyleClass().add("grid-pane");
         res.setAlignment(Pos.CENTER);
-//        res.getStyleClass().add("label");
-//        choiceBox.getStyleClass().add("combo-box");
 
         grid.getChildren().addAll(
             res, 

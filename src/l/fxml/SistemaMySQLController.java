@@ -26,11 +26,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.converter.DateTimeStringConverter;
 import sql.Usuario;
 
-/**
- * FXML Controller class
- *
- * @author neury-dev
- */
 public class SistemaMySQLController implements Initializable {
     
     @FXML private TextField entradaId;

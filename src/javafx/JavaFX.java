@@ -103,7 +103,7 @@ public class JavaFX extends Application {
         
         /*  clases externas infortadas
         ------------------------------------------------------------------------*/
-//        DesarrollosController devs  = new DesarrollosController();
+        DesarrollosController devsFXML  = new DesarrollosController();
         Desarrollos devs  = new Desarrollos();
         /*                                 fin de importación de clases externas
         -----------------------------------------------------------------------*/
@@ -112,8 +112,7 @@ public class JavaFX extends Application {
             @Override public void handle(MouseEvent eventObject) {
                 if(desarrollos.isSelected()) {
                     borderPane.getChildren().removeAll(borderPane.getLeft());
-//                    devs.desarrollos();
-                    devs.dev();
+                    devs.devs();
                 } else {
                     borderPane.setLeft(left);
                     borderPane.setCenter(center);
@@ -125,12 +124,7 @@ public class JavaFX extends Application {
             @Override public void handle(MouseEvent eventObject) {
                 if(codigo.isSelected()) {
                     borderPane.getChildren().removeAll(borderPane.getLeft());
-                    try {
-                        Parent codigo = FXMLLoader.load(getClass().getResource("/i/code.fxml"));
-                        borderPane.setCenter(codigo);
-                    } catch (IOException ex) {
-                        Logger.getLogger(JavaFX.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    devsFXML.desarrollos();
                 } else {
                     borderPane.setLeft(left);
                     borderPane.setCenter(center);

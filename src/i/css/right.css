@@ -30,7 +30,7 @@
 .toggle-button:selected .svg-path {
     -fx-fill: n-color-1;
 }
-.button {
+/*.button {
     -fx-text-fill: n-color-1;
     -fx-background-color: n-color-4;
     -fx-background-radius: 4px;
@@ -40,4 +40,4 @@
     -fx-pref-width: 50px;
     -fx-border: none;
     -fx-cursor: hand;
-}
+}*/

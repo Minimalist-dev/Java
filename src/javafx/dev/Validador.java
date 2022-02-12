@@ -64,7 +64,7 @@ public class Validador extends JavaFX {
         }).dependsOn("username", userTextField.textProperty())
         .decorates(userTextField)
         .immediate();
-//        ;
+
         grid.add(new Label("Usuario:"), 0, 1);
         grid.add(userTextField, 1, 1);
 

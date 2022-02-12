@@ -5,29 +5,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.JavaFX;
 import static javafx.JavaFX.borderPane;
+import javafx.dev.CargarImg;
 import javafx.dev.Expresiones;
 import javafx.dev.Formulario;
 import javafx.dev.Validador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
-import javafx.geometry.Orientation;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 
 public class Desarrollos extends JavaFX {
-    private static final int N      = 6;
+    private static final int N      = 4;
     public static Hyperlink dev[]   = new Hyperlink[N];
     
     public void 
-    dev() {
+    devs() {
         ScrollPane scrollPane = new ScrollPane();
         
         FlowPane flowPane = new FlowPane();   
@@ -41,10 +38,16 @@ public class Desarrollos extends JavaFX {
         Label dev2[] = new Label[N];
         
         String nombre[] = {
-            "Sistema MySQL", "Identidad", "Login", "Formulario", "Expresiones", "Validador"
+            "Formulario", 
+            "Expresiones", 
+            "Validador", 
+            "Cargar imagen"
         };
         String fecha[] = {
-             "08/01/2022", "29/01/2022", "29/01/2022", "05/02/2022", "05/02/2022", "05/02/2022"
+            "05/02/2022 - 05/02/2022", 
+            "05/02/2022 - 05/02/2022", 
+            "05/02/2022 - 05/02/2022", 
+            "12/02/2022 - 12/02/2022"
         };
         
         for (int i = 0; i < N; i++) {
@@ -69,7 +72,7 @@ public class Desarrollos extends JavaFX {
         borderPane.setCenter(scrollPane);
         
         flowPane.getStyleClass().add("flow-pane");
-        scrollPane.getStylesheets().add("/i/css/dev/desarrollos.css");
+        scrollPane.getStylesheets().add("/i/css/dev/devs_fx.css");
     }
     
     static class Ir {
@@ -83,37 +86,28 @@ public class Desarrollos extends JavaFX {
         }
         public void 
         a() {
-            dev[5].setOnAction(new EventHandler<ActionEvent>() {
+            dev[3].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    CargarImg cargarImg = new CargarImg();
+                    cargarImg.cargarImg();
+                }
+            });
+            dev[2].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Validador validador = new Validador();
                     validador.deCampos();
                 }
             });
-            dev[4].setOnAction(new EventHandler<ActionEvent>() {
+            dev[1].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Expresiones Expresiones = new Expresiones();
                     Expresiones.expresada();
                 }
             });
-            dev[3].setOnAction(new EventHandler<ActionEvent>() {
+            dev[0].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Formulario formulario = new Formulario();
                     formulario.contacto();
-                }
-            });
-            dev[2].setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent eventObject) {
-                    cargarDesarrollo("/javafxml/dev/login");
-                }
-            });
-            dev[1].setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent eventObject) {
-                    cargarDesarrollo("/javafxml/dev/identidad");
-                }
-            });
-            dev[0].setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent eventObject) {
-                    cargarDesarrollo("/javafxml/dev/sistemaMySQL");
                 }
             });
         }

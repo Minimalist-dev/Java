@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<VBox styleClass="pane" stylesheets="@../../i/css/dev/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.l.LoginController">
+<VBox styleClass="pane" stylesheets="@../../i/css/dev/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="l.fxml.LoginController">
    <children>
       <VBox maxWidth="-Infinity" prefWidth="500.0" styleClass="pane">
          <children>
