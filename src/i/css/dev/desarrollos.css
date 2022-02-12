@@ -1,17 +1,20 @@
 
 .scroll-pane {
-    -fx-hbar-policy: never;
+    -fx-hbar-policy: never;-fx-padding: 0;
 }
 .flow-pane {
     -fx-alignment: CENTER;
     -fx-column-halignment: center;
     -fx-pref-width: 886px;
+    -fx-padding: 0 16 0 0;
 }
 .desarrollo {
     -fx-background-color: n-color-2;
     -fx-background-radius: 4; 
+    -fx-background-insets: 2px;
     -fx-border-color: n-color-2;
     -fx-border-radius: 4;
+    -fx-border-insets: 2px;
 }
 .desarrollo:hover {
     -fx-background-color: n-color-2-8;
@@ -27,5 +30,5 @@
 .label {
     -fx-text-fill: n-color-1;
     -fx-font-size: 10px;
-    -fx-padding: 0 0 8 8;
+    -fx-padding: 8 0 8 8;
 }

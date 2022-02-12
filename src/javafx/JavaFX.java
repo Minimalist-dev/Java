@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import l.Desarrollos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -18,12 +19,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.SVGPath;
-import javafxml.l.DesarrollosController;
+import l.DesarrollosController;
 
-/**
- *
- * @author neury-dev
- */
 public class JavaFX extends Application {
     public static BorderPane borderPane = new BorderPane();
     public HBox top                     = new HBox();
@@ -106,7 +103,8 @@ public class JavaFX extends Application {
         
         /*  clases externas infortadas
         ------------------------------------------------------------------------*/
-        DesarrollosController devs  = new DesarrollosController();
+//        DesarrollosController devs  = new DesarrollosController();
+        Desarrollos devs  = new Desarrollos();
         /*                                 fin de importación de clases externas
         -----------------------------------------------------------------------*/
         
@@ -114,7 +112,8 @@ public class JavaFX extends Application {
             @Override public void handle(MouseEvent eventObject) {
                 if(desarrollos.isSelected()) {
                     borderPane.getChildren().removeAll(borderPane.getLeft());
-                    devs.desarrollos();
+//                    devs.desarrollos();
+                    devs.dev();
                 } else {
                     borderPane.setLeft(left);
                     borderPane.setCenter(center);

@@ -1,4 +1,4 @@
-package javafx.l;
+package l.fx;
 
 /**
  *

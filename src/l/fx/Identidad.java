@@ -1,4 +1,4 @@
-package javafx.l;
+package l.fx;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;

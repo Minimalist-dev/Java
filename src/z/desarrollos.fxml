@@ -12,10 +12,22 @@
    <content>
       <FlowPane styleClass="flow-pane">
          <children>
+            <AnchorPane layoutX="88.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="32.0" prefWidth="143.0" styleClass="desarrollo">
+               <children>
+                  <Hyperlink onAction="#sitioWeb" text="Validador" />
+                  <Label layoutY="18.0" text="05/ 02/2022 - 05/02/2022" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="161.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="32.0" prefWidth="143.0" styleClass="desarrollo">
+               <children>
+                  <Hyperlink onAction="#expresiones" text="Expresiones" />
+                  <Label layoutY="18.0" text="05/ 02/2022 - 05/02/2022" />
+               </children>
+            </AnchorPane>
             <AnchorPane layoutX="10.0" layoutY="53.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="32.0" prefWidth="143.0" styleClass="desarrollo">
                <children>
-                  <Hyperlink text="Proyecto" />
-                  <Label layoutY="18.0" text="00/ 00/2022 - 00/00/2022" />
+                  <Hyperlink onAction="#formulario" text="Formulario" />
+                  <Label layoutY="18.0" text="05/ 02/2022 - 05/05/2022" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

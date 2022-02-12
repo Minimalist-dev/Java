@@ -1,6 +1,6 @@
-package javafxml.l;
+package l.fxml;
 
-import javafx.l.Tabla;
+import l.fx.Tabla;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.l.Paginacion;
+import l.fx.Paginacion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
