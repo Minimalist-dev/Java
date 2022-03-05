@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import javafx.JavaFX;
 import static javafx.JavaFX.borderPane;
 import javafx.dev.CargarImg;
+import javafx.dev.Encriptado;
 import javafx.dev.Expresiones;
 import javafx.dev.Formulario;
 import javafx.dev.Validador;
@@ -20,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 public class Desarrollos extends JavaFX {
-    private static final int N      = 4;
+    private static final int N      = 5;
     public static Hyperlink dev[]   = new Hyperlink[N];
     
     public void 
@@ -41,13 +42,15 @@ public class Desarrollos extends JavaFX {
             "Formulario", 
             "Expresiones", 
             "Validador", 
-            "Cargar imagen"
+            "Cargar imagen",
+            "Encriptado"
         };
         String fecha[] = {
             "05/02/2022 - 05/02/2022", 
             "05/02/2022 - 05/02/2022", 
             "05/02/2022 - 05/02/2022", 
-            "12/02/2022 - 12/02/2022"
+            "12/02/2022 - 12/02/2022", 
+            "05/03/2022 - 00/00/2022"
         };
         
         for (int i = 0; i < N; i++) {
@@ -86,6 +89,12 @@ public class Desarrollos extends JavaFX {
         }
         public void 
         a() {
+            dev[4].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    Encriptado encriptado = new Encriptado();
+                    encriptado.doc();
+                }
+            });
             dev[3].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     CargarImg cargarImg = new CargarImg();

@@ -1,9 +1,5 @@
 package l.fx;
 
-/**
- *
- * @author neury-dev
- */
 public class Tabla {
     private int id;
     private String nombre;
