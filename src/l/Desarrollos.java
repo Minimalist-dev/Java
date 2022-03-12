@@ -50,7 +50,7 @@ public class Desarrollos extends JavaFX {
             "05/02/2022 - 05/02/2022", 
             "05/02/2022 - 05/02/2022", 
             "12/02/2022 - 12/02/2022", 
-            "05/03/2022 - 00/00/2022"
+            "05/03/2022 - 12/03/2022"
         };
         
         for (int i = 0; i < N; i++) {
@@ -62,7 +62,6 @@ public class Desarrollos extends JavaFX {
             dev[i].setUnderline(false);
             dev2[i] = new  Label(fecha[i]);
             dev2[i].setLayoutY(10);
-            
             
             anchorPane[i].getChildren().addAll(dev[i], dev2[i]);
             flowPane.getChildren().add(anchorPane[i]);
