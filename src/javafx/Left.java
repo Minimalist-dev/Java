@@ -1,14 +1,10 @@
 package javafx;
 
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author neury-dev
- */
 public class Left extends JavaFX {
     public Center nivel = new Center();
     public VBox 
@@ -28,75 +24,75 @@ public class Left extends JavaFX {
         Button apacheNetBeans   = new Button("Apache NetBeans");
         Button gitAndGitHub     = new Button("Git y GitHub");
         
-        html.setOnAction(new EventHandler<ActionEvent>() {
+        html.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.html();
             }
         });
-        xml.setOnAction(new EventHandler<ActionEvent>() {
+        xml.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.xml();
             }
         });
-        css.setOnAction(new EventHandler<ActionEvent>() {
+        css.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.css();
             }
         });
-        javascript.setOnAction(new EventHandler<ActionEvent>() {
+        javascript.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.javascript();
             }
         });
-        java.setOnAction(new EventHandler<ActionEvent>() {
+        java.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.java();
             }
         });
-        php.setOnAction(new EventHandler<ActionEvent>() {
+        php.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.php();
             }
         });
-        sql.setOnAction(new EventHandler<ActionEvent>() {
+        sql.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.sql();
             }
         });
-        json.setOnAction(new EventHandler<ActionEvent>() {
+        json.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.json();
             }
         });
-        aria.setOnAction(new EventHandler<ActionEvent>() {
+        aria.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.aria();
             }
         });
-        svg.setOnAction(new EventHandler<ActionEvent>() {
+        svg.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.svg();
             }
         });
-        apacheNetBeans.setOnAction(new EventHandler<ActionEvent>() {
+        apacheNetBeans.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.apacheNetBeans();
             }
         });
-        gitAndGitHub.setOnAction(new EventHandler<ActionEvent>() {
+        gitAndGitHub.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
-            handle(ActionEvent event) {
+            handle(MouseEvent event) {
                 nivel.gitAndGitHub();
             }
         });

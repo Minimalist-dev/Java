@@ -15,11 +15,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Callback;
 
-/**
- * FXML Controller class
- *
- * @author neury-dev
- */
 public class IdentidadController implements Initializable {
 
     @FXML private ListView<String> listView;

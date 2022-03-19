@@ -6,9 +6,11 @@ import java.util.logging.Logger;
 import javafx.JavaFX;
 import static javafx.JavaFX.borderPane;
 import javafx.dev.CargarImg;
+import javafx.dev.EditorHTML;
 import javafx.dev.Encriptado;
 import javafx.dev.Expresiones;
 import javafx.dev.Formulario;
+import javafx.dev.IdentidadDeOS;
 import javafx.dev.Validador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,7 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 public class Desarrollos extends JavaFX {
-    private static final int N      = 5;
+    private static final int N      = 7;
     public static Hyperlink dev[]   = new Hyperlink[N];
     
     public void 
@@ -43,14 +45,18 @@ public class Desarrollos extends JavaFX {
             "Expresiones", 
             "Validador", 
             "Cargar imagen",
-            "Encriptado"
+            "Encriptado",
+            "Identidad de OS",
+            "Editor HTML"
         };
         String fecha[] = {
             "05/02/2022 - 05/02/2022", 
             "05/02/2022 - 05/02/2022", 
             "05/02/2022 - 05/02/2022", 
             "12/02/2022 - 12/02/2022", 
-            "05/03/2022 - 12/03/2022"
+            "05/03/2022 - 12/03/2022",
+            "19/03/2022 - 19/03/2022",
+            "19/03/2022 - xxxxxxxxxxxx"
         };
         
         for (int i = 0; i < N; i++) {
@@ -88,6 +94,18 @@ public class Desarrollos extends JavaFX {
         }
         public void 
         a() {
+            dev[6].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    EditorHTML editorHTML = new EditorHTML();
+                    editorHTML.doc();
+                }
+            });
+            dev[5].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    IdentidadDeOS identidadDeOS = new IdentidadDeOS();
+                    identidadDeOS.doc();
+                }
+            });
             dev[4].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Encriptado encriptado = new Encriptado();

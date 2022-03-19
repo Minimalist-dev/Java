@@ -11,111 +11,108 @@ import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author neury-dev
- */
 public class Identidad {
     public static String 
     pc() {
-        String pcObject = null;
+        String pc = null;
         try {
-            pcObject = InetAddress.getLocalHost().getHostName();
+            pc = InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException ex) {
             Logger.getLogger(Identidad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return pcObject;
+        return pc;
     }
     public static String 
     usuario() {
-        String usuarioObject = System.getProperty("user.name");
-        return usuarioObject; 
+        String usuario = System.getProperty("user.name");
+//        String usuario = System.getenv("USERNAME");//Window
+        return usuario; 
     }
     public static String 
     ipLocal() {
-        String ipLocalObject = null;
+        String ipLocal = null;
         try {
-            ipLocalObject = InetAddress.getLocalHost().getHostAddress();
+            ipLocal = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException ex) {
             Logger.getLogger(Identidad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return ipLocalObject; 
+        return ipLocal; 
     }
     public static String 
     idioma() {
-        Locale idiomaLocaleObject = Locale.getDefault();
-        String idiomaObject = idiomaLocaleObject.toString();
-        return idiomaObject;
+        Locale idiomaLocale = Locale.getDefault();
+        String idioma = idiomaLocale.toString();
+        return idioma;
     }
     public static String
     origen() {
-        String origenObject = Locale.getDefault().getDisplayCountry();
-        return origenObject;
+        String origen = Locale.getDefault().getDisplayCountry();
+        return origen;
     }
     public static String 
     ipv4(){ 
-        String ipv4Object = null; 
-        Enumeration<NetworkInterface> networkInterfaceObject = null; 
+        String ipv4 = null; 
+        Enumeration<NetworkInterface> networkInterface = null; 
         
         try { 
-            networkInterfaceObject = NetworkInterface.getNetworkInterfaces(); 
-        } catch (SocketException exObject) { 
-            throw new RuntimeException(exObject); 
+            networkInterface = NetworkInterface.getNetworkInterfaces(); 
+        } catch (SocketException ex) { 
+            throw new RuntimeException(ex); 
         } 
         
-        while(networkInterfaceObject.hasMoreElements()){ 
-            NetworkInterface elementObject = networkInterfaceObject.nextElement(); 
-            Enumeration<InetAddress> InetAddressObject = elementObject.getInetAddresses(); 
+        while(networkInterface.hasMoreElements()){ 
+            NetworkInterface element = networkInterface.nextElement(); 
+            Enumeration<InetAddress> InetAddress = element.getInetAddresses(); 
             
-            while (InetAddressObject.hasMoreElements()){ 
-                InetAddress ipObject = InetAddressObject.nextElement(); 
-                if (ipObject instanceof Inet4Address){ 
-                    if (ipObject.isSiteLocalAddress()){ 
-                        ipv4Object = ipObject.getHostAddress(); 
+            while (InetAddress.hasMoreElements()){ 
+                InetAddress ip = InetAddress.nextElement(); 
+                if (ip instanceof Inet4Address){ 
+                    if (ip.isSiteLocalAddress()){ 
+                        ipv4 = ip.getHostAddress(); 
                     } 
                 } 
             } 
         } 
-        return ipv4Object; 
+        return ipv4; 
     }
     public static String 
     ipv6(){ 
-        String ipv6Object = null; 
-        Enumeration<NetworkInterface> networkInterfaceObject = null; 
+        String ipv6 = null; 
+        Enumeration<NetworkInterface> networkInterface = null; 
         
         try { 
-            networkInterfaceObject = NetworkInterface.getNetworkInterfaces(); 
-        } catch (SocketException exObject) { 
-            throw new RuntimeException(exObject); 
+            networkInterface = NetworkInterface.getNetworkInterfaces(); 
+        } catch (SocketException ex) { 
+            throw new RuntimeException(ex); 
         } 
         
-        while(networkInterfaceObject.hasMoreElements()){ 
-            NetworkInterface elementObject = networkInterfaceObject.nextElement(); 
-            Enumeration<InetAddress> inetAddressObject = elementObject.getInetAddresses(); 
+        while(networkInterface.hasMoreElements()){ 
+            NetworkInterface element = networkInterface.nextElement(); 
+            Enumeration<InetAddress> inetAddress = element.getInetAddresses(); 
             
-            while (inetAddressObject.hasMoreElements()){ 
-                InetAddress ipObject = inetAddressObject.nextElement(); 
-                if (ipObject instanceof Inet6Address){ 
-                    if (ipObject.isLinkLocalAddress()){ 
-                        ipv6Object = ipObject.getHostAddress(); 
+            while (inetAddress.hasMoreElements()){ 
+                InetAddress ip = inetAddress.nextElement(); 
+                if (ip instanceof Inet6Address){ 
+                    if (ip.isLinkLocalAddress()){ 
+                        ipv6 = ip.getHostAddress(); 
                     } 
                 } 
             } 
         } 
-        return ipv6Object; 
+        return ipv6; 
     }
     public static String 
     macName(){ 
-        Enumeration<NetworkInterface> networkInterfaceObject = null; 
+        Enumeration<NetworkInterface> networkInterface = null; 
         
         try { 
-            networkInterfaceObject = NetworkInterface.getNetworkInterfaces(); 
-        } catch (SocketException exObject) { 
-            throw new RuntimeException(exObject); 
+            networkInterface = NetworkInterface.getNetworkInterfaces(); 
+        } catch (SocketException ex) { 
+            throw new RuntimeException(ex); 
         } 
         
-        NetworkInterface currentObject = networkInterfaceObject.nextElement();
+        NetworkInterface current = networkInterface.nextElement();
  
-        return currentObject.getDisplayName();
+        return current.getDisplayName();
     }
 }
