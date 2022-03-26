@@ -11,11 +11,11 @@ import javafx.dev.Encriptado;
 import javafx.dev.Expresiones;
 import javafx.dev.Formulario;
 import javafx.dev.IdentidadDeOS;
+import javafx.dev.InvertirArray;
 import javafx.dev.Validador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -23,19 +23,20 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 public class Desarrollos extends JavaFX {
-    private static final int N      = 7;
-    public static Hyperlink dev[]   = new Hyperlink[N];
-    
+    private static final int N      = 8;
+    private static Hyperlink dev[]   = new Hyperlink[N];
+
     public void 
     devs() {
         ScrollPane scrollPane = new ScrollPane();
-        
-        FlowPane flowPane = new FlowPane();   
-//        flowPane.setPadding(new Insets(0, 20, 0, 20));
-//        flowPane.setPrefWrapLength(886); // preferred width allows for two columns
-//        flowPane.setTranslateY(30);
-        flowPane.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-        
+
+        FlowPane flowPane = new FlowPane();
+////        flowPane.setOrientation(Orientation.VERTICAL);
+////        flowPane.setNodeOrientation(NodeOrientation.);
+////        flowPane.setPadding(new Insets(0, 20, 0, 20));
+////        flowPane.setPrefWrapLength(886); // preferred width allows for two columns
+////        flowPane.setTranslateY(30);
+//        
         AnchorPane anchorPane[] = new AnchorPane[N];
 
         Label dev2[] = new Label[N];
@@ -47,7 +48,8 @@ public class Desarrollos extends JavaFX {
             "Cargar imagen",
             "Encriptado",
             "Identidad de OS",
-            "Editor HTML"
+            "Editor HTML",
+            "Invertir Array"
         };
         String fecha[] = {
             "05/02/2022 - 05/02/2022", 
@@ -56,22 +58,40 @@ public class Desarrollos extends JavaFX {
             "12/02/2022 - 12/02/2022", 
             "05/03/2022 - 12/03/2022",
             "19/03/2022 - 19/03/2022",
-            "19/03/2022 - xxxxxxxxxxxx"
+            "19/03/2022 - 26/03/2022",
+            "26/03/2022 - 26/03/2022"
         };
         
-        for (int i = 0; i < N; i++) {
-            anchorPane[i] = new AnchorPane();
-            anchorPane[i].setPrefSize(143, 32);
-            anchorPane[i].getStyleClass().add("desarrollo");
+        int[] n = {7, 6, 5, 4, 3, 2, 1, 0};
+        
+        for (int i = 0; i < n.length; i++) {
+            anchorPane[n[i]] = new AnchorPane();
+            anchorPane[n[i]].setPrefSize(143, 32);
+            anchorPane[n[i]].getStyleClass().add("desarrollo");
             
-            dev[i] = new  Hyperlink(nombre[i]);
-            dev[i].setUnderline(false);
-            dev2[i] = new  Label(fecha[i]);
-            dev2[i].setLayoutY(10);
+            dev[n[i]] = new  Hyperlink(nombre[n[i]]);
+            dev[n[i]].setUnderline(false);
+            dev2[n[i]] = new  Label(fecha[n[i]]);
+            dev2[n[i]].setLayoutY(10);
             
-            anchorPane[i].getChildren().addAll(dev[i], dev2[i]);
-            flowPane.getChildren().add(anchorPane[i]);
+            anchorPane[n[i]].getChildren().addAll(dev[n[i]], dev2[n[i]]);
+            flowPane.getChildren().add(anchorPane[n[i]]);
         }
+//        int[] n = { 0, 1, 2, 3, 4, 5, 6, 7 };
+//        
+//        for (int i = 0; i < n.length; i++) {
+//            anchorPane[n[n.length -1 -i]] = new AnchorPane();
+//            anchorPane[n[n.length -1 -i]].setPrefSize(143, 32);
+//            anchorPane[n[n.length -1 -i]].getStyleClass().add("desarrollo");
+//            
+//            dev[n[n.length -1 -i]] = new  Hyperlink(nombre[n[n.length -1 -i]]);
+//            dev[n[n.length -1 -i]].setUnderline(false);
+//            dev2[n[n.length -1 -i]] = new  Label(fecha[n[n.length -1 -i]]);
+//            dev2[n[n.length -1 -i]].setLayoutY(10);
+//            
+//            anchorPane[n[n.length -1 -i]].getChildren().addAll(dev[n[n.length -1 -i]], dev2[n[n.length -1 -i]]);
+//            flowPane.getChildren().add(anchorPane[n[n.length -1 -i]]);
+//        }
         
         Ir ir = new Ir();
         ir.a();
@@ -94,6 +114,12 @@ public class Desarrollos extends JavaFX {
         }
         public void 
         a() {
+            dev[7].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    InvertirArray doc = new InvertirArray();
+                    doc.doc();
+                }
+            });
             dev[6].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     EditorHTML editorHTML = new EditorHTML();

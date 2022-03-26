@@ -13,11 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.HTMLEditor;
 //https://docs.oracle.com/javase/8/javafx/api/javafx/scene/web/package-summary.html
 public class EditorHTML extends JavaFX {
+    
     private HTMLEditor htmlEditor = null;
     private final String INITIAL_TEXT = "<html><body>Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             +"Nam tortor felis, pulvinar in scelerisque cursus, pulvinar at ante. Nulla consequat "
@@ -29,28 +31,27 @@ public class EditorHTML extends JavaFX {
     public StackPane 
     doc() {
         Group root = new Group();
-//        primaryStage.setScene(new Scene(root));
         VBox vRoot = new VBox();
 
         vRoot.setPadding(new Insets(8, 8, 8, 8));
         vRoot.setSpacing(5);
 
         htmlEditor = new HTMLEditor();
-        htmlEditor.setPrefSize(500, 245);
+        htmlEditor.setPrefSize(Region.USE_COMPUTED_SIZE, 200);
         htmlEditor.setHtmlText(INITIAL_TEXT);
         vRoot.getChildren().add(htmlEditor);
-
+//        final TextArea htmlLabel = new TextArea();
         final Label htmlLabel = new Label();
-        htmlLabel.setMaxWidth(500);
+        htmlLabel.setMaxWidth(Region.USE_PREF_SIZE);
         htmlLabel.setWrapText(true);
 
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.getStyleClass().add("noborder-scroll-pane");
+//        scrollPane.getStyleClass().add("noborder-scroll-pane");
         scrollPane.setContent(htmlLabel);
         scrollPane.setFitToWidth(true);
-        scrollPane.setPrefHeight(180);
+        scrollPane.setPrefSize(500, 50);
 
-        Button showHTMLButton = new Button("Show the HTML below");
+        Button showHTMLButton = new Button("Mostrar el HTML a continuación");
         vRoot.setAlignment(Pos.CENTER);
         showHTMLButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -69,12 +70,8 @@ public class EditorHTML extends JavaFX {
         grid.setHgap(10);
         grid.setPadding(new Insets(5, 5, 5, 5));
         GridPane.setConstraints(root, 0, 0, 1, 1, HPos.CENTER, VPos.CENTER);
-//        GridPane.setConstraints(webView, 0, 1, 1, 1, HPos.CENTER, VPos.CENTER);
-//        GridPane.setConstraints(choiceBox, 0, 2, 1, 1, HPos.CENTER, VPos.CENTER);
-
-        grid.getStylesheets().add("/i/css/dev/identidad_de_os.css");
-        grid.getStyleClass().add("grid-pane");
-
+        grid.getStylesheets().add("/i/css/dev/center.css");
+        grid.getStyleClass().add("center");
         grid.getChildren().addAll(
             root
         );
