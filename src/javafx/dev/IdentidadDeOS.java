@@ -24,7 +24,7 @@ public class IdentidadDeOS extends JavaFX {
     private Label res           = new Label("");
     
     public StackPane 
-    doc() {
+    identidadDeOS() {
         final String[] string = new String[] {
             "linux", "window", "limpiar"
         };

@@ -26,7 +26,7 @@ public class Formulario extends JavaFX {
     public String email = " ";
     
     public StackPane 
-    contacto() {
+    formulario() {
         final ComboBox comboBoxEmail = new ComboBox();
         
         comboBoxEmail.getItems().addAll(

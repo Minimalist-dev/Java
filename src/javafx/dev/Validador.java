@@ -33,7 +33,7 @@ public class Validador extends JavaFX {
     private GridPane grid;
 
     public StackPane
-    deCampos() {
+    validador() {
         grid = createGrid();
 
         Text sceneTitle = new Text("Bienvenido");

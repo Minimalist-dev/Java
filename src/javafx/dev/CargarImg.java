@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import z.Img;
 import javafx.JavaFX;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;

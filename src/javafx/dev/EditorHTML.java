@@ -29,7 +29,7 @@ public class EditorHTML extends JavaFX {
             + "gravida eu dolor. Etiam sit amet ipsum sem.</body></html>";
     
     public StackPane 
-    doc() {
+    editorHTML() {
         Group root = new Group();
         VBox vRoot = new VBox();
 

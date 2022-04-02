@@ -27,12 +27,15 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 //https://docs.oracle.com/javase/9/docs/specs/security/standard-names.html#messagedigest-algorithms
 public class Encriptado extends JavaFX {
+    protected CriptoDoc criptoDoc;
+    
     private TextField req   = new TextField("Encriptado");
     private Label res       = new Label("");
     private Label decript   = new Label("");
     
+    
     public StackPane 
-    doc() {
+    encriptado() {
         final String[] string = new String[] {
             "m5", "sha", "uno", "dos", "cipher"
         };
@@ -45,28 +48,28 @@ public class Encriptado extends JavaFX {
         (ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if(string[new_val.intValue()] == "m5") {
                 decript.setText("M5");
-                res.setText(CriptoDoc.md5(req.getText()));
+                res.setText(criptoDoc.md5(req.getText()));
             } else if(string[new_val.intValue()] == "sha") {
-                String sha = CriptoDoc.sha1(req.getText());
+                String sha = criptoDoc.sha1(req.getText());
                 
                 decript.setText("SHA-1");
                 res.setText(sha);
             } else if(string[new_val.intValue()] == "uno") {
-                String sha = CriptoDoc.colocarSHA(req.getText());
+                String sha = criptoDoc.colocarSHA(req.getText());
                 
                 res.setText(sha);
-                decript.setText(CriptoDoc.obtenerSHA(sha));
+                decript.setText(criptoDoc.obtenerSHA(sha));
             } else if(string[new_val.intValue()] == "dos") {
-                String sha2 = CriptoDoc.colocarSHA2(req.getText());
+                String sha2 = criptoDoc.colocarSHA2(req.getText());
                 
                 res.setText(sha2);
-                decript.setText(CriptoDoc.obtenerSHA2(sha2));
+                decript.setText(criptoDoc.obtenerSHA2(sha2));
             } else if(string[new_val.intValue()] == "cipher") {
                 try {
-                    String cipher = CriptoDoc.cifra(req.getText());
+                    String cipher = criptoDoc.cifra(req.getText());
                     
                     res.setText(cipher);
-                    decript.setText(CriptoDoc.descifra(cipher));
+                    decript.setText(criptoDoc.descifra(cipher));
                 } catch (Exception ex) {
                     Logger.getLogger(Encriptado.class.getName()).log(Level.SEVERE, null, ex);
                 }

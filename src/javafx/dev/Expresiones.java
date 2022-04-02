@@ -16,12 +16,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
 public class Expresiones extends JavaFX {
+    protected Expresion expresion;
+    
     private TextField req   = new TextField("");
     private Label res       = new Label("");
     
     
     public StackPane 
-    expresada() {
+    expresiones() {
         final String[] string = new String[] {
             "texto", "numero"
         };
@@ -35,7 +37,7 @@ public class Expresiones extends JavaFX {
                 if(string[new_val.intValue()] == "texto") {
                     res.setText("");
                     
-                    if(Expresion.texto(req.getText())) {
+                    if(expresion.texto(req.getText())) {
                         res.setText("Coincide");
                     } else {
                         res.setText("No coincide");
@@ -43,7 +45,7 @@ public class Expresiones extends JavaFX {
                 } else if(string[new_val.intValue()] == "numero") {
                     res.setText("");
                     
-                    if(Expresion.numero(req.getText())) {
+                    if(expresion.numero(req.getText())) {
                         res.setText("Coincide");
                     } else {
                         res.setText("No coincide");

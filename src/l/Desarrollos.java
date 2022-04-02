@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.JavaFX;
 import static javafx.JavaFX.borderPane;
+import javafx.dev.Anagramas;
 import javafx.dev.CargarImg;
 import javafx.dev.EditorHTML;
 import javafx.dev.Encriptado;
@@ -23,7 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 public class Desarrollos extends JavaFX {
-    private static final int N      = 8;
+    private static final int N      = 9;
     private static Hyperlink dev[]   = new Hyperlink[N];
 
     public void 
@@ -49,7 +50,8 @@ public class Desarrollos extends JavaFX {
             "Encriptado",
             "Identidad de OS",
             "Editor HTML",
-            "Invertir Array"
+            "Invertir Array",
+            "Anagramas"
         };
         String fecha[] = {
             "05/02/2022 - 05/02/2022", 
@@ -59,10 +61,11 @@ public class Desarrollos extends JavaFX {
             "05/03/2022 - 12/03/2022",
             "19/03/2022 - 19/03/2022",
             "19/03/2022 - 26/03/2022",
-            "26/03/2022 - 26/03/2022"
+            "26/03/2022 - 26/03/2022",
+            "02/04/2022 - 02/04/2022"
         };
         
-        int[] n = {7, 6, 5, 4, 3, 2, 1, 0};
+        int[] n = { 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         
         for (int i = 0; i < n.length; i++) {
             anchorPane[n[i]] = new AnchorPane();
@@ -114,28 +117,34 @@ public class Desarrollos extends JavaFX {
         }
         public void 
         a() {
+            dev[8].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    Anagramas anagramas = new Anagramas();
+                    anagramas.anagramas();
+                }
+            });
             dev[7].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
-                    InvertirArray doc = new InvertirArray();
-                    doc.doc();
+                    InvertirArray invertirArray = new InvertirArray();
+                    invertirArray.invertirArray();
                 }
             });
             dev[6].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     EditorHTML editorHTML = new EditorHTML();
-                    editorHTML.doc();
+                    editorHTML.editorHTML();
                 }
             });
             dev[5].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     IdentidadDeOS identidadDeOS = new IdentidadDeOS();
-                    identidadDeOS.doc();
+                    identidadDeOS.identidadDeOS();
                 }
             });
             dev[4].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Encriptado encriptado = new Encriptado();
-                    encriptado.doc();
+                    encriptado.encriptado();
                 }
             });
             dev[3].setOnAction(new EventHandler<ActionEvent>() {
@@ -147,19 +156,19 @@ public class Desarrollos extends JavaFX {
             dev[2].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Validador validador = new Validador();
-                    validador.deCampos();
+                    validador.validador();
                 }
             });
             dev[1].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Expresiones Expresiones = new Expresiones();
-                    Expresiones.expresada();
+                    Expresiones.expresiones();
                 }
             });
             dev[0].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Formulario formulario = new Formulario();
-                    formulario.contacto();
+                    formulario.formulario();
                 }
             });
         }

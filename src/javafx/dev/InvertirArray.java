@@ -12,7 +12,7 @@ public class InvertirArray extends JavaFX {
     private static TextArea textArea = new TextArea();
     
     public StackPane 
-    doc() {
+    invertirArray() {
         textArea.clear();
         numeros();
         palabras();
