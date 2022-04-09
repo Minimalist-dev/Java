@@ -1,6 +1,7 @@
 package l.fxml;
 
 import java.net.URL;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,9 +20,7 @@ public class IdentidadController implements Initializable {
 
     @FXML private ListView<String> listView;
 
-    /**
-     * Initializes the controller class.
-     */
+    /** Initializes the controller class...........................................*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList observableList = FXCollections.observableArrayList();
@@ -35,11 +34,14 @@ public class IdentidadController implements Initializable {
             "IP local: "    + Identidad.ipLocal(),
             "Idioma: "      + Identidad.idioma(),
             "Origen: "      + Identidad.origen(),
+            "Zona: "        + ZoneId.systemDefault(),
             "IPv4: "        + Identidad.ipv4(),
             "IPv6: "        + Identidad.ipv6(),
             "MACName: "     + Identidad.macName()
         );
-
+//        for(String im : ZoneId.getAvailableZoneIds()) {
+//            System.out.println(im);
+//        }
         listView.setItems(observableList);
         
         listView.setCellFactory(

@@ -1,9 +1,17 @@
 package javafx;
 
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
+import de.jensd.fx.glyphs.weathericons.WeatherIcon;
+import de.jensd.fx.glyphs.weathericons.WeatherIconView;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class Left extends JavaFX {
     public Center nivel = new Center();
@@ -12,7 +20,7 @@ public class Left extends JavaFX {
         VBox vbox = new VBox();
         
         Button html             = new Button("HTML");
-        Button xml              = new Button("XML");
+        Button xml              = new Button();
         Button css              = new Button("CSS");
         Button javascript       = new Button("JavaScript");
         Button java             = new Button("Java");
@@ -23,6 +31,18 @@ public class Left extends JavaFX {
         Button svg              = new Button("SVG");
         Button apacheNetBeans   = new Button("Apache NetBeans");
         Button gitAndGitHub     = new Button("Git y GitHub");
+        
+//        Text createIconHTML = GlyphsDude.createIcon(FontAwesomeIcons.ANGELLIST);
+//        createIconHTML.setFill(Color.WHITE);
+//        html.setGraphic(createIconHTML);
+        Text createIcon = GlyphsDude.createIcon(FontAwesomeIcons.JSFIDDLE, "1.5em");
+        createIcon.setFill(Color.WHITE);
+        xml.setGraphic(createIcon);
+//        Text createIconCSS = .createIcon(MaterialDesignIcon.HELP, "1.5em");
+//        createIconCSS.setFill(Color.WHITE);
+//        css.setGraphic(createIconCSS);
+
+//        Text weat = WeatherIconView(WeatherIcon);
         
         html.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override public void 
