@@ -12,6 +12,7 @@ import javafx.dev.Encriptado;
 import javafx.dev.Expresiones;
 import javafx.dev.Formulario;
 import javafx.dev.IdentidadDeOS;
+import javafx.dev.Intervalos;
 import javafx.dev.InvertirArray;
 import javafx.dev.Validador;
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 public class Desarrollos extends JavaFX {
-    private static final int N      = 9;
+    private static final int N      = 10;
     private static Hyperlink dev[]   = new Hyperlink[N];
 
     public void 
@@ -51,7 +52,8 @@ public class Desarrollos extends JavaFX {
             "Identidad de OS",
             "Editor HTML",
             "Invertir Array",
-            "Anagramas"
+            "Anagramas",
+            "Intervalos"
         };
         String fecha[] = {
             "05/02/2022 - 05/02/2022", 
@@ -62,10 +64,11 @@ public class Desarrollos extends JavaFX {
             "19/03/2022 - 19/03/2022",
             "19/03/2022 - 26/03/2022",
             "26/03/2022 - 26/03/2022",
-            "02/04/2022 - 02/04/2022"
+            "02/04/2022 - 02/04/2022",
+            "16/04/2022 - 02/04/2022"
         };
         
-        int[] n = { 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+        int[] n = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         
         for (int i = 0; i < n.length; i++) {
             anchorPane[n[i]] = new AnchorPane();
@@ -117,6 +120,12 @@ public class Desarrollos extends JavaFX {
         }
         public void 
         a() {
+            dev[9].setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent eventObject) {
+                    Intervalos intervalos = new Intervalos();
+                    intervalos.intervalos();
+                }
+            });
             dev[8].setOnAction(new EventHandler<ActionEvent>() {
                 @Override public void handle(ActionEvent eventObject) {
                     Anagramas anagramas = new Anagramas();
